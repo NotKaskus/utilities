@@ -1,6 +1,6 @@
 import type { CollectorFilter, EmojiIdentifierResolvable, EmojiResolvable, MessageReaction, User } from 'discord.js';
-import type { MessagePrompterChannelTypes, MessagePrompterMessage } from '../constants';
 import type { IMessagePrompterExplicitReturnBase } from '../ExplicitReturnTypes';
+import type { MessagePrompterChannelTypes, MessagePrompterMessage } from '../constants';
 import type { IMessagePrompterReactionStrategyOptions } from '../strategyOptions';
 import { MessagePrompterBaseStrategy } from './MessagePrompterBaseStrategy';
 
@@ -12,7 +12,7 @@ export class MessagePrompterReactionStrategy extends MessagePrompterBaseStrategy
 
 	/**
 	 * Constructor for the {@link MessagePrompterReactionStrategy} class
-	 * @param messagePrompter The used instance of {@link MessagePrompter}
+	 * @param message The message instance for this {@link MessagePrompter}
 	 * @param options Overrideable options if needed.
 	 */
 	public constructor(message: MessagePrompterMessage, options: IMessagePrompterReactionStrategyOptions) {
@@ -25,7 +25,7 @@ export class MessagePrompterReactionStrategy extends MessagePrompterBaseStrategy
 	 * This executes the {@link MessagePrompterReactionStrategy} and sends the message.
 	 * The handler will wait for one (1) reaction.
 	 * @param channel The channel to use.
-	 * @param authorOrFilter An author object to validate or a {@linkplain https://discord.js.org/#/docs/main/stable/typedef/CollectorFilter CollectorFilter} predicate callback.
+	 * @param authorOrFilter An author object to validate or a {@linkplain https://discord.js.org/docs/packages/discord.js/main/CollectorFilter:TypeAlias CollectorFilter} predicate callback.
 	 * @returns A promise that resolves to the reaction object.
 	 */
 	public async run(
@@ -36,6 +36,6 @@ export class MessagePrompterReactionStrategy extends MessagePrompterBaseStrategy
 
 		const response = await this.collectReactions(channel, authorOrFilter, this.reactions);
 
-		return this.explicitReturn ? response : response.reaction ?? response;
+		return this.explicitReturn ? response : (response.reaction ?? response);
 	}
 }

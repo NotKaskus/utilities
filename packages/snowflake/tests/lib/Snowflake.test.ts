@@ -1,4 +1,4 @@
-import { DeconstructedSnowflake, Snowflake } from '../../src';
+import { Snowflake, type DeconstructedSnowflake } from '../../src';
 
 // 2020-01-01
 const sampleEpoch = 1577836800000n;
@@ -13,7 +13,52 @@ describe('Snowflake', () => {
 		vi.useRealTimers();
 	});
 
-	describe('Generate', () => {
+	describe('processId', () => {
+		test('GIVEN default THEN returns 1n', () => {
+			const snowflake = new Snowflake(sampleEpoch);
+			expect(snowflake.processId).toBe(1n);
+		});
+
+		test.each([15, 15n])('GIVEN valid value (%s) THEN returns same value as bigint', (value) => {
+			const snowflake = new Snowflake(sampleEpoch);
+			snowflake.processId = value;
+			expect(snowflake.processId).toBe(15n);
+		});
+
+		test.each([4200, 4200n])('GIVEN out-of-range value (%s) THEN returns masked value as bigint', (value) => {
+			const snowflake = new Snowflake(sampleEpoch);
+			snowflake.processId = value;
+			expect(snowflake.processId).toBe(8n);
+		});
+	});
+
+	describe('workerId', () => {
+		test('GIVEN default THEN returns 0n', () => {
+			const snowflake = new Snowflake(sampleEpoch);
+			expect(snowflake.workerId).toBe(0n);
+		});
+
+		test.each([15, 15n])('GIVEN valid value (%s) THEN returns same value as bigint', (value) => {
+			const snowflake = new Snowflake(sampleEpoch);
+			snowflake.workerId = value;
+			expect(snowflake.workerId).toBe(15n);
+		});
+
+		test.each([4200, 4200n])('GIVEN out-of-range value (%s) THEN returns masked value as bigint', (value) => {
+			const snowflake = new Snowflake(sampleEpoch);
+			snowflake.workerId = value;
+			expect(snowflake.workerId).toBe(8n);
+		});
+	});
+
+	describe('epoch', () => {
+		test.each([sampleEpoch, Number(sampleEpoch), new Date(Number(sampleEpoch))])('GIVEN %s THEN returns 1577836800000n', (value) => {
+			const snowflake = new Snowflake(value);
+			expect(snowflake.epoch).toBe(sampleEpoch);
+		});
+	});
+
+	describe('generate', () => {
 		test('GIVEN timestamp as number THEN returns predefined snowflake', () => {
 			const testId = '3971046231244804096';
 			const testTimestamp = 2524608000000;
@@ -32,19 +77,10 @@ describe('Snowflake', () => {
 			expect(snow.toString()).toBe(testId);
 		});
 
-		test('GIVEN timestamp as Date and increment higher than 4095n THEN returns predefined snowflake', () => {
-			const testId = '3971046231244804096';
-			const testDate = new Date(2524608000000);
-			const snowflake = new Snowflake(sampleEpoch);
-			const snow = snowflake.generate({ timestamp: testDate, increment: 5000n });
-
-			expect(snow.toString()).toBe(testId);
-		});
-
 		test('GIVEN empty object options THEN returns predefined snowflake', () => {
 			const testId = '4096';
 			const snowflake = new Snowflake(sampleEpoch);
-			const snow = snowflake.generate({});
+			const snow = snowflake.generate();
 
 			expect(snow.toString()).toBe(testId);
 		});
@@ -52,7 +88,7 @@ describe('Snowflake', () => {
 		test('GIVEN no options THEN returns predefined snowflake', () => {
 			const testId = '4096';
 			const snowflake = new Snowflake(sampleEpoch);
-			const snow = snowflake.generate({});
+			const snow = snowflake.generate();
 
 			expect(snow.toString()).toBe(testId);
 		});
@@ -101,10 +137,43 @@ describe('Snowflake', () => {
 			expect(setOf10Snowflakes.size).toBe(arrayOf10Snowflakes.length);
 		});
 
+		test('GIVEN timestamp as Date and increment lower than 0n THEN returns predefined snowflake', () => {
+			const testId = '8191';
+			const snowflake = new Snowflake(sampleEpoch);
+			const snow = snowflake.generate({ increment: -1n });
+
+			expect(snow.toString()).toBe(testId);
+		});
+
+		test('GIVEN timestamp as Date and increment higher than 4095n THEN returns predefined snowflake', () => {
+			const testId = '6196';
+			const snowflake = new Snowflake(sampleEpoch);
+			const snow = snowflake.generate({ increment: 2100n });
+
+			expect(snow.toString()).toBe(testId);
+		});
+
+		test('GIVEN timestamp as Date and increment higher than 4095n THEN returns predefined snowflake', () => {
+			const testId = '5000';
+			const snowflake = new Snowflake(sampleEpoch);
+			const snow = snowflake.generate({ increment: 5000n });
+
+			expect(snow.toString()).toBe(testId);
+		});
+
 		test('GIVEN overflowing processId THEN generates ID with truncated processId', () => {
 			const testId = '106496';
 			const snowflake = new Snowflake(sampleEpoch);
 			const snow = snowflake.generate({ processId: 0b1111_1010n });
+
+			expect(snow.toString()).toBe(testId);
+		});
+
+		test('GIVEN overflowing default processId THEN generates ID with truncated processId', () => {
+			const testId = '106496';
+			const snowflake = new Snowflake(sampleEpoch);
+			snowflake.processId = 0b1111_1010n;
+			const snow = snowflake.generate();
 
 			expect(snow.toString()).toBe(testId);
 		});
@@ -116,9 +185,62 @@ describe('Snowflake', () => {
 
 			expect(snow.toString()).toBe(testId);
 		});
+
+		test('GIVEN overflowing default workerId THEN generates ID with truncated workerId', () => {
+			const testId = '3411968';
+			const snowflake = new Snowflake(sampleEpoch);
+			snowflake.workerId = 0b1111_1010n;
+			const snow = snowflake.generate();
+
+			expect(snow.toString()).toBe(testId);
+		});
+
+		describe('increment overrides', () => {
+			const IncrementSymbol = Object.getOwnPropertySymbols(new Snowflake(sampleEpoch)).find(
+				(s) => s.description === '@sapphire/snowflake.increment'
+			);
+
+			if (!IncrementSymbol) throw new TypeError('Could not find IncrementSymbol');
+
+			test('GIVEN near-limit THEN it reaches limit', () => {
+				const snowflake = new Snowflake(sampleEpoch);
+				Reflect.set(snowflake, IncrementSymbol, 4094n);
+				const snow = snowflake.generate();
+
+				expect(snow.toString()).toBe('8190');
+				expect(Reflect.get(snowflake, IncrementSymbol)).toBe(4095n);
+			});
+
+			test('GIVEN limit THEN it cycles to 0', () => {
+				const snowflake = new Snowflake(sampleEpoch);
+				Reflect.set(snowflake, IncrementSymbol, 4095n);
+				const snow = snowflake.generate();
+
+				expect(snow.toString()).toBe('8191');
+				expect(Reflect.get(snowflake, IncrementSymbol)).toBe(0n);
+			});
+
+			test('GIVEN over-limit THEN it cycles to 0', () => {
+				const snowflake = new Snowflake(sampleEpoch);
+				Reflect.set(snowflake, IncrementSymbol, 4096n);
+				const snow = snowflake.generate();
+
+				expect(snow.toString()).toBe('4096');
+				expect(Reflect.get(snowflake, IncrementSymbol)).toBe(1n);
+			});
+
+			test('GIVEN under-limit THEN it cycles to 0', () => {
+				const snowflake = new Snowflake(sampleEpoch);
+				Reflect.set(snowflake, IncrementSymbol, -1n);
+				const snow = snowflake.generate();
+
+				expect(snow.toString()).toBe('8191');
+				expect(Reflect.get(snowflake, IncrementSymbol)).toBe(0n);
+			});
+		});
 	});
 
-	describe('Deconstruct', () => {
+	describe('deconstruct', () => {
 		test('GIVEN id as string THEN returns data about snowflake', () => {
 			const snowflake = new Snowflake(sampleEpoch);
 
@@ -150,7 +272,7 @@ describe('Snowflake', () => {
 		});
 	});
 
-	describe('Decode', () => {
+	describe('decode', () => {
 		test('GIVEN id as string THEN returns data about snowflake', () => {
 			const snowflake = new Snowflake(sampleEpoch);
 
@@ -182,12 +304,26 @@ describe('Snowflake', () => {
 		});
 	});
 
+	describe('timestampFrom', () => {
+		const snowflake = new Snowflake(sampleEpoch);
+
+		test('GIVEN id as string THEN returns data about snowflake', () => {
+			const timestamp = snowflake.timestampFrom('3971046231244935169');
+			expect(timestamp).toBe(2524608000000);
+		});
+
+		test('GIVEN id as bigint THEN returns data about snowflake', () => {
+			const timestamp = snowflake.timestampFrom(3971046231244935168n);
+			expect(timestamp).toBe(2524608000000);
+		});
+	});
+
 	describe.each([
 		[String, String],
 		[String, BigInt],
 		[BigInt, String],
 		[BigInt, BigInt]
-	])('Compare', (ctorA, ctorB) => {
+	])('compare', (ctorA, ctorB) => {
 		test.each([
 			[ctorA(737141877803057244n), ctorB(254360814063058944n), 1],
 			[ctorA(1737141877803057244n), ctorB(254360814063058944n), 1],

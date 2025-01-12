@@ -1,9 +1,5 @@
 import { setTimeout as sleep } from 'node:timers/promises';
-import { err, none, ok, Option, OptionError, some } from '../src/index';
-import type { None } from '../src/lib/Option/None';
-import type { Some } from '../src/lib/Option/Some';
-import type { Err } from '../src/lib/Result/Err';
-import type { Ok } from '../src/lib/Result/Ok';
+import { err, none, ok, Option, OptionError, some, type Err, type None, type Ok, type Some } from '../src/index';
 import { error, makeThrow } from './shared';
 
 describe('Option', () => {
@@ -16,7 +12,7 @@ describe('Option', () => {
 
 			test('GIVEN none THEN always returns false', () => {
 				const x = none;
-				expect<false>(x.isSome()).toBe(false);
+				expect<boolean>(x.isSome()).toBe(false);
 			});
 		});
 
@@ -53,12 +49,42 @@ describe('Option', () => {
 		describe('isNone', () => {
 			test('GIVEN some THEN always returns false', () => {
 				const x = some(2);
-				expect<false>(x.isNone()).toBe(false);
+				expect<boolean>(x.isNone()).toBe(false);
 			});
 
 			test('GIVEN none THEN always returns true', () => {
 				const x = none;
 				expect<boolean>(x.isNone()).toBe(true);
+			});
+		});
+
+		describe('isNoneOr', () => {
+			test('GIVEN some AND true-returning callback THEN returns true', () => {
+				const x = some(2);
+				const cb = vi.fn((value: number) => value > 1);
+
+				expect(x.isNoneOr(cb)).toBe(true);
+				expect(cb).toHaveBeenCalledTimes(1);
+				expect(cb).toHaveBeenCalledWith(2);
+				expect(cb).toHaveLastReturnedWith(true);
+			});
+
+			test('GIVEN some AND false-returning callback THEN returns false', () => {
+				const x = some(0);
+				const cb = vi.fn((value: number) => value > 1);
+
+				expect(x.isNoneOr(cb)).toBe(false);
+				expect(cb).toHaveBeenCalledTimes(1);
+				expect(cb).toHaveBeenCalledWith(0);
+				expect(cb).toHaveLastReturnedWith(false);
+			});
+
+			test('GIVEN none THEN always returns false', () => {
+				const x = none;
+				const cb = vi.fn((value: number) => value > 1);
+
+				expect(x.isNoneOr(cb)).toBe(true);
+				expect(cb).not.toHaveBeenCalled();
 			});
 		});
 
@@ -526,7 +552,7 @@ describe('Option', () => {
 			test('GIVEN none THEN always returns false', () => {
 				const x = none;
 
-				expect<false>(x.contains(2)).toBe(false);
+				expect<boolean>(x.contains(2)).toBe(false);
 			});
 		});
 
@@ -689,21 +715,21 @@ describe('Option', () => {
 				const x = some(3);
 				const y = none;
 
-				expect<false>(x.eq(y)).toBe(false);
+				expect<boolean>(x.eq(y)).toBe(false);
 			});
 
 			test('GIVEN x=none, y=some(t) THEN always returns false', () => {
 				const x = none;
 				const y = some(4);
 
-				expect<false>(x.eq(y)).toBe(false);
+				expect<boolean>(x.eq(y)).toBe(false);
 			});
 
 			test('GIVEN x=none, y=none THEN returns true', () => {
 				const x = none;
 				const y = none;
 
-				expect<true>(x.eq(y)).toBe(true);
+				expect<boolean>(x.eq(y)).toBe(true);
 			});
 		});
 
@@ -726,21 +752,21 @@ describe('Option', () => {
 				const x = some(3);
 				const y = none;
 
-				expect<true>(x.ne(y)).toBe(true);
+				expect<boolean>(x.ne(y)).toBe(true);
 			});
 
 			test('GIVEN x=none, y=some(t) THEN always returns true', () => {
 				const x = none;
 				const y = some(4);
 
-				expect<true>(x.ne(y)).toBe(true);
+				expect<boolean>(x.ne(y)).toBe(true);
 			});
 
 			test('GIVEN x=none, y=none THEN always returns false', () => {
 				const x = none;
 				const y = none;
 
-				expect<false>(x.ne(y)).toBe(false);
+				expect<boolean>(x.ne(y)).toBe(false);
 			});
 		});
 
@@ -772,9 +798,18 @@ describe('Option', () => {
 	});
 
 	describe('some', () => {
-		test('GIVEN some THEN returns Some', () => {
+		test('GIVEN some without an argument THEN returns Some<undefined>', () => {
+			const x = some();
+
+			expectTypeOf(x).toMatchTypeOf<Some<undefined>>();
+			expect(x.isSome()).toBe(true);
+			expect(x.isNone()).toBe(false);
+		});
+
+		test('GIVEN some with an argument THEN returns Some<T>', () => {
 			const x = some(42);
 
+			expectTypeOf(x).toMatchTypeOf<Some<number>>();
 			expect(x.isSome()).toBe(true);
 			expect(x.isNone()).toBe(false);
 		});
@@ -895,6 +930,16 @@ describe('Option', () => {
 			const c: Option<bigint> = none;
 
 			expect<Expected>(Option.any([a, b, c])).toBe(none);
+		});
+	});
+
+	describe('@@toStringTag', () => {
+		test('GIVEN Some THEN returns "Some"', () => {
+			expect<string>(some(1)[Symbol.toStringTag]).toBe('Some');
+		});
+
+		test('GIVEN None THEN returns "None"', () => {
+			expect<string>(none[Symbol.toStringTag]).toBe('None');
 		});
 	});
 

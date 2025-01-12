@@ -1,43 +1,52 @@
 {
 	"name": "@sapphire/decorators",
-	"version": "6.0.0",
+	"version": "6.1.1",
 	"description": "Useful TypeScript decorators for Sapphire Framework Discord bots",
 	"author": "@sapphire",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "dist/cjs/index.cjs",
+	"module": "dist/esm/index.mjs",
+	"types": "dist/cjs/index.d.cts",
 	"exports": {
-		"import": "./dist/index.mjs",
-		"require": "./dist/index.js",
-		"types": "./dist/index.d.ts"
+		"import": {
+			"types": "./dist/esm/index.d.mts",
+			"default": "./dist/esm/index.mjs"
+		},
+		"require": {
+			"types": "./dist/cjs/index.d.cts",
+			"default": "./dist/cjs/index.cjs"
+		}
 	},
 	"sideEffects": false,
 	"homepage": "https://github.com/sapphiredev/utilities/tree/main/packages/decorators",
 	"scripts": {
 		"test": "vitest run",
 		"lint": "eslint src tests --ext ts --fix -c ../../.eslintrc",
-		"build": "tsup",
+		"build": "yarn gen-index && tsup && yarn build:rename-cjs-index",
+		"build:rename-cjs-index": "tsx ../../scripts/rename-cjs-index.cts",
 		"docs": "typedoc-json-parser",
 		"prepack": "yarn build",
 		"bump": "cliff-jumper",
-		"check-update": "cliff-jumper --dry-run"
+		"check-update": "cliff-jumper --dry-run",
+		"gen-index": "tsx ../../scripts/gen-index.cts decorators --write"
 	},
 	"dependencies": {
-		"tslib": "^2.4.1"
+		"tslib": "^2.8.1"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^1.10.0",
+		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/discord-utilities": "workspace:^",
 		"@sapphire/discord.js-utilities": "workspace:^",
 		"@sapphire/ratelimits": "workspace:^",
 		"@sapphire/result": "workspace:^",
 		"@sapphire/utilities": "workspace:^",
-		"@vitest/coverage-c8": "^0.26.3",
-		"tsup": "^6.5.0",
-		"typedoc": "^0.23.24",
-		"typedoc-json-parser": "^7.1.0",
-		"typescript": "^4.9.4",
-		"vitest": "^0.26.3"
+		"@vitest/coverage-v8": "^2.1.8",
+		"tsup": "^8.3.5",
+		"tsx": "^4.19.2",
+		"typedoc": "^0.26.11",
+		"typedoc-json-parser": "^10.2.0",
+		"typescript": "~5.4.5",
+		"vitest": "^2.1.8"
 	},
 	"repository": {
 		"type": "git",
@@ -45,9 +54,7 @@
 		"directory": "packages/decorators"
 	},
 	"files": [
-		"dist/**/*.js*",
-		"dist/**/*.mjs*",
-		"dist/**/*.d*"
+		"dist/"
 	],
 	"engines": {
 		"node": ">=v14.0.0",

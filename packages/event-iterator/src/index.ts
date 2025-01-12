@@ -52,7 +52,7 @@ export class EventIterator<V extends unknown[]> implements AsyncIterableIterator
 	/**
 	 * The amount of idle time in ms before moving on.
 	 */
-	#idle?: number;
+	readonly #idle?: number;
 
 	/**
 	 * The queue of received values.
@@ -67,22 +67,21 @@ export class EventIterator<V extends unknown[]> implements AsyncIterableIterator
 	/**
 	 * The limit before ending the EventIterator.
 	 */
-	#limit: number;
+	readonly #limit: number;
 
 	/**
 	 * The timer to track when this will idle out.
 	 */
-	#idleTimer: NodeJS.Timer | null = null;
+	readonly #idleTimer: NodeJS.Timeout | undefined | null = null;
 
 	/**
 	 * The push handler with context bound to the instance.
 	 */
-	#push: (this: EventIterator<V>, ...value: V) => void;
+	readonly #push: (this: EventIterator<V>, ...value: V) => void;
 
 	/**
 	 * @param emitter The event emitter to listen to.
 	 * @param event The event we're listening for to receives values from.
-	 * @param limit The amount of values to receive before ending the iterator.
 	 * @param options Any extra options.
 	 */
 	public constructor(emitter: EventEmitter, event: string, options: EventIteratorOptions<V> = {}) {
@@ -99,7 +98,6 @@ export class EventIterator<V extends unknown[]> implements AsyncIterableIterator
 		const maxListeners = this.emitter.getMaxListeners();
 		if (maxListeners !== 0) this.emitter.setMaxListeners(maxListeners + 1);
 
-		// @ts-expect-error Silence weird compiler issue regarding `this.push`'s arguments not being `any`.
 		this.emitter.on(this.event, this.#push);
 	}
 
@@ -118,7 +116,6 @@ export class EventIterator<V extends unknown[]> implements AsyncIterableIterator
 		this.#ended = true;
 		this.#queue = [];
 
-		// @ts-expect-error Silence weird compiler issue regarding `this.push`'s arguments not being `any`.
 		this.emitter.off(this.event, this.#push);
 		const maxListeners = this.emitter.getMaxListeners();
 		if (maxListeners !== 0) this.emitter.setMaxListeners(maxListeners - 1);
@@ -145,7 +142,7 @@ export class EventIterator<V extends unknown[]> implements AsyncIterableIterator
 
 		// Listen for a new element from the emitter:
 		return new Promise<IteratorResult<V>>((resolve) => {
-			let idleTimer: NodeJS.Timer | null = null;
+			let idleTimer: NodeJS.Timeout | undefined | null = null;
 
 			// If there is an idle time set, we will create a temporary timer,
 			// which will cause the iterator to end if no new elements are received:

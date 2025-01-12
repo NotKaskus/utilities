@@ -1,0 +1,10 @@
+name: eslint-plugin-result
+org: sapphire
+install: true
+packagePath: packages/eslint-plugin-result
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

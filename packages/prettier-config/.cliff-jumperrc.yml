@@ -1,3 +1,10 @@
 name: prettier-config
 org: sapphire
+install: true
 packagePath: packages/prettier-config
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

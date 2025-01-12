@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/prettier-config
 
 **Prettier configuration for all Sapphire Community repositories.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/prettier-config?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/prettier-config)
 [![npm](https://img.shields.io/npm/v/@sapphire/prettier-config?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/prettier-config)
 
@@ -34,10 +33,12 @@ Add the Prettier config to your `package.json`:
 }
 ```
 
-Or to `prettierrc.js`:
+Or to `prettierrc.mjs`:
 
 ```js
-module.exports = require('@sapphire/prettier-config');
+import SapphirePrettierConfig from '@sapphire/prettier-config';
+
+export default SapphirePrettierConfig;
 ```
 
 ## Buy us some doughnuts

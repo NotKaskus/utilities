@@ -1,5 +1,12 @@
 import { UserError } from '@sapphire/framework';
-import { ChannelType, Message as DJSMessage, PermissionFlagsBits, PermissionResolvable, PermissionsBitField, PermissionsString } from 'discord.js';
+import {
+	ChannelType,
+	Message as DJSMessage,
+	PermissionFlagsBits,
+	PermissionsBitField,
+	type PermissionsString,
+	type PermissionResolvable
+} from 'discord.js';
 import diff from 'lodash/difference';
 import { DecoratorIdentifiers, RequiresUserPermissions } from '../../src';
 
@@ -13,7 +20,7 @@ interface Message {
 		permissionsFor(): BitField;
 	};
 	guild: {
-		me: any;
+		members: any;
 	};
 }
 
@@ -28,7 +35,7 @@ function buildMessage(channelType: DJSMessage['channel']['type'], ...givenPermis
 			permissionsFor: () => ({ missing: (resolvedPermissions: PermissionsBitField) => buildMissing(resolvedPermissions, givenPermissions) })
 		},
 		guild: {
-			me: ''
+			members: { me: '' }
 		}
 	};
 }

@@ -2,6 +2,93 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/result@2.7.1](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.7.0...@sapphire/result@2.7.1) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- **types:** Resolve regression ([a29026e](https://github.com/sapphiredev/utilities/commit/a29026e85a54bdfb36899c7b58ec1fc1e11987e8)) ([#827](https://github.com/sapphiredev/utilities/pull/827) by @kyranet)
+
+# [@sapphire/result@2.7.0](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.6...@sapphire/result@2.7.0) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- Move browser imports ([100ffb0](https://github.com/sapphiredev/utilities/commit/100ffb0a2471bb9f74cc580d282d11059e1a0a68)) ([#826](https://github.com/sapphiredev/utilities/pull/826) by @kyranet)
+- Resolve build errors ([809c41c](https://github.com/sapphiredev/utilities/commit/809c41cef869bb9095cd630a416981be6870e83a)) ([#806](https://github.com/sapphiredev/utilities/pull/806) by @kyranet)
+- **deps:** Update all non-major dependencies ([083376a](https://github.com/sapphiredev/utilities/commit/083376aac55094dbeddb5194e8a8f0d794b8cceb)) ([#763](https://github.com/sapphiredev/utilities/pull/763) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e7fdc5d](https://github.com/sapphiredev/utilities/commit/e7fdc5db3632a7f90292ef3978898da32730343a)) ([#752](https://github.com/sapphiredev/utilities/pull/752) by @renovate[bot])
+
+## 📝 Documentation
+
+- **result:** Update readme url for website ([804cc21](https://github.com/sapphiredev/utilities/commit/804cc21e4f71a528b36bcce7ed58d038d3e8ff87))
+
+## 🚀 Features
+
+- **Option:** Add `isNoneOr` ([bb6c889](https://github.com/sapphiredev/utilities/commit/bb6c889127063e8e9eaa6d5808b4bd2fa38cbe92)) ([#824](https://github.com/sapphiredev/utilities/pull/824) by @kyranet)
+- Rewrite `/result` ([4b7c3e6](https://github.com/sapphiredev/utilities/commit/4b7c3e6c354797a2f166a5b97cadd33f1a4a11ca)) ([#808](https://github.com/sapphiredev/utilities/pull/808) by @kyranet)
+
+## 🧪 Testing
+
+- **result:** Update test case ([5932a43](https://github.com/sapphiredev/utilities/commit/5932a4375a5b980a4ff91f744941c0463bbe0d66))
+
+# [@sapphire/result@2.6.6](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.6...@sapphire/result@2.6.6) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/result@2.6.5](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.5...@sapphire/result@2.6.5) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **result:** Properly split CJS, ESM and IIFE ([1f8f52e](https://github.com/sapphiredev/utilities/commit/1f8f52efd78a76553bd3c0a516c4a629f098496e))
+- Update export mapping for proper ESM/CJS split ([dd0cff8](https://github.com/sapphiredev/utilities/commit/dd0cff8e9b03a15812f25f7a1180501a92422629))
+- **deps:** Update all non-major dependencies (#607) ([9cc8bd0](https://github.com/sapphiredev/utilities/commit/9cc8bd0d4b5d650deab2c913e6c3d713861bae28))
+
+## 📝 Documentation
+
+- **readme:** Add link to examples ([e33b5b9](https://github.com/sapphiredev/utilities/commit/e33b5b9408bf0f48f427291de5bd56bfc4250644))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/result@2.6.4](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.3...@sapphire/result@2.6.4) - (2023-05-12)
+
+## 🐛 Bug Fixes
+
+- **result:** Remove unnecessary tslib import ([ec40daa](https://github.com/sapphiredev/utilities/commit/ec40daa55fce58202f06401bb1a8ee0414f28962))
+
+# [@sapphire/result@2.6.3](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.2...@sapphire/result@2.6.3) - (2023-05-02)
+
+## 🏠 Refactor
+
+- **result:** Internally rework code to ensure typings can be generated without conflicts ([83d698e](https://github.com/sapphiredev/utilities/commit/83d698e5b0f3e552a3c97e1d9146fc74426b7609))
+
+# [@sapphire/result@2.6.2](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.1...@sapphire/result@2.6.2) - (2023-04-17)
+
+## 🐛 Bug Fixes
+
+- **result:** Add tslib dependency to fix __exportStar not being defined ([4c51387](https://github.com/sapphiredev/utilities/commit/4c51387b83ce363752528d45da9ca9772ed80552))
+
+# [@sapphire/result@2.6.1](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.6.0...@sapphire/result@2.6.1) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **result:** Add missing type modifier ([deb93b7](https://github.com/sapphiredev/utilities/commit/deb93b7a27d8f0646544bd6b9e5135903f7b94a7))
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **deps:** Update all non-major dependencies (#544) ([cc78f17](https://github.com/sapphiredev/utilities/commit/cc78f17390c7f3db08af92bf46a5a70a9c11dd5f))
+- **deps:** Update all non-major dependencies (#532) ([8033d1f](https://github.com/sapphiredev/utilities/commit/8033d1ff7a5a1974134c61f424f171cccb2915e1))
+- **deps:** Update all non-major dependencies (#514) ([21b07d5](https://github.com/sapphiredev/utilities/commit/21b07d5db529a0d982647a60de98e46f36f1ac93))
+
+## 📝 Documentation
+
+- Add @06000208 as a contributor ([fa3349e](https://github.com/sapphiredev/utilities/commit/fa3349e55ce4ad008785211dec7bf8e2b5d933df))
+- Add @didinele as a contributor ([42ef7b6](https://github.com/sapphiredev/utilities/commit/42ef7b656c48fd0e720119db1d622c8bba2791e9))
+- Add @goestav as a contributor ([0e56a92](https://github.com/sapphiredev/utilities/commit/0e56a92a4e2d0942bfa207f81a8cb03b32312034))
+- Add @CitTheDev as a contributor ([34169ea](https://github.com/sapphiredev/utilities/commit/34169eae1dc0476ccf5a6c4f36e28602a204829e))
+- Add @legendhimslef as a contributor ([059b6f1](https://github.com/sapphiredev/utilities/commit/059b6f1ab5362d46d58624d06c1aa39192b0716f))
+
 # [@sapphire/result@2.6.0](https://github.com/sapphiredev/utilities/compare/@sapphire/result@2.5.0...@sapphire/result@2.6.0) - (2022-10-16)
 
 ## 🐛 Bug Fixes
