@@ -1,3 +1,13 @@
+import { esbuildPluginVersionInjector } from 'esbuild-plugin-version-injector';
+import { Options } from 'tsup';
 import { createTsupConfig } from '../../scripts/tsup.config';
 
-export default createTsupConfig({ format: ['esm', 'cjs'] });
+const defaultOptions: Options = {
+	esbuildPlugins: [esbuildPluginVersionInjector()]
+};
+
+export default createTsupConfig({
+	cjsOptions: defaultOptions,
+	esmOptions: defaultOptions,
+	iifeOptions: { disabled: true }
+});

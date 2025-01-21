@@ -1,3 +1,10 @@
 name: async-queue
 org: sapphire
+install: true
 packagePath: packages/async-queue
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

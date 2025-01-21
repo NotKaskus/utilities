@@ -1,8 +1,9 @@
 {
-	"extends": "../../ts-config/extra-strict-without-decorators.json",
+	"extends": ["../../ts-config/src/tsconfig.json", "../../ts-config/src/extra-strict.json", "../../ts-config/src/verbatim.json"],
 	"compilerOptions": {
 		"noEmit": true,
 		"incremental": false,
+		"moduleResolution": "Node16",
 		"types": ["vitest/globals"]
 	},
 	"include": ["./"]

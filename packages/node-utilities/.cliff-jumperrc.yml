@@ -1,3 +1,10 @@
 name: node-utilities
 org: sapphire
+install: true
 packagePath: packages/node-utilities
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

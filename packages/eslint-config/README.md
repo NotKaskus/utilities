@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/eslint-config
 
 **ESLint configuration for all Sapphire Community repositories.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/eslint-config?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/eslint-config)
 [![npm](https://img.shields.io/npm/v/@sapphire/eslint-config?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/eslint-config)
 
@@ -42,6 +41,22 @@ Or to `eslintrc.js` / `.eslintrc.json`:
 {
 	"extends": "@sapphire"
 }
+```
+
+Or to `eslint.config.js`:
+
+```
+const { FlatCompat } = require('@eslint/eslintrc')
+const sapphireEslintConfig = require('@sapphire/eslint-config')
+
+const compat = new FlatCompat()
+
+module.exports = [
+	...compat.config(sapphireEslintConfig),
+	{
+		// other configs
+	}
+]
 ```
 
 Create `tsconfig.eslint.json` next to the eslint config file, for example with content:

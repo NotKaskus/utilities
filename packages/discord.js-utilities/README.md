@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/discord.js-utilities
 
 **Discord.js specific utilities for your JavaScript/TypeScript bots.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/discord.js-utilities?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/discord.js-utilities)
 [![npm](https://img.shields.io/npm/v/@sapphire/discord.js-utilities?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/discord.js-utilities)
 
@@ -19,9 +18,9 @@ There many functions that are always extremely useful to have when developing bo
 
 ## Features
 
--   Written in TypeScript
--   Bundled with esbuild to provide size-optimal bundles
--   Offers CommonJS and ESM bundles
+-   Written in TypeScript.
+-   Bundled with esbuild to provide size-optimal bundles.
+-   Offers CommonJS and ESM bundles.
 
 ## Installation
 
@@ -62,4 +61,4 @@ Thank you to all the people who already contributed to Sapphire!
 
 [contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
 [@sapphire/discord-utilities]: https://www.npmjs.com/package/@sapphire/discord-utilities
-[discord.js]: https://discord.js.org
+[discord.js]: https://discordjs.dev

@@ -1,27 +1,40 @@
 {
 	"name": "@sapphire/ts-config",
-	"version": "3.3.4",
+	"version": "5.0.1",
 	"description": "Shareable TypeScript configuration for the Sapphire Community",
 	"author": "@sapphire",
 	"license": "MIT",
-	"main": "tsconfig.json",
-	"typedocMain": "tests/index.ts",
+	"main": "src/tsconfig.json",
 	"exports": {
 		".": {
-			"import": "./tsconfig.json",
-			"require": "./tsconfig.json"
+			"types": "./src/tsconfig.json",
+			"import": "./src/tsconfig.json",
+			"require": "./src/tsconfig.json"
 		},
-		"./without-decorators": {
-			"import": "./without-decorators.json",
-			"require": "./without-decorators.json"
+		"./base": {
+			"types": "./src/tsconfig.json",
+			"import": "./src/tsconfig.json",
+			"require": "./src/tsconfig.json"
+		},
+		"./decorators": {
+			"types": "./src/decorators.json",
+			"import": "./src/decorators.json",
+			"require": "./src/decorators.json"
 		},
 		"./extra-strict": {
-			"import": "./extra-strict.json",
-			"require": "./extra-strict.json"
+			"types": "./src/extra-strict.json",
+			"import": "./src/extra-strict.json",
+			"require": "./src/extra-strict.json"
 		},
-		"./extra-strict-without-decorators": {
-			"import": "./extra-strict-without-decorators.json",
-			"require": "./extra-strict-without-decorators.json"
+		"./verbatim": {
+			"types": "./src/verbatim.json",
+			"import": "./src/verbatim.json",
+			"require": "./src/verbatim.json"
+		},
+		"./bundler": {
+			"types": "./src/bundler.json",
+			"import": "./src/bundler.json",
+			"require": "./src/bundler.json"
 		}
 	},
 	"sideEffects": false,
@@ -29,18 +42,17 @@
 	"scripts": {
 		"test": "vitest run",
 		"lint": "eslint tests --ext mjs,ts --fix -c ../../.eslintrc",
-		"build": "yarn lint && tsc -b tests",
+		"build": "tsc -b tests",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"tslib": "^2.4.1",
-		"typescript": "^4.9.4"
+		"tslib": "^2.8.1",
+		"typescript": "~5.4.5"
 	},
 	"files": [
-		"tsconfig.json",
-		"extra-strict*.json",
-		"*decorators*.json"
+		"src",
+		"UPGRADING-*.md"
 	],
 	"engines": {
 		"node": ">=v16.0.0",
@@ -68,9 +80,11 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^1.10.0",
+		"@favware/cliff-jumper": "^6.0.0",
 		"@sapphire/eslint-config": "workspace:^",
-		"@vitest/coverage-c8": "^0.26.3",
-		"vitest": "^0.26.3"
+		"@sapphire/eslint-plugin-result": "workspace:^",
+		"@vitest/coverage-v8": "^3.0.2",
+		"typedoc-json-parser": "^10.2.0",
+		"vitest": "^3.0.2"
 	}
 }

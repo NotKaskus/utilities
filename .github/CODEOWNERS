@@ -8,8 +8,10 @@
 /packages/discord-utilities/**/*.ts @favna
 /packages/discord.js-utilities/src/**/*.ts @kyranet @vladfrangu @realshadownova @favna
 /packages/eslint-config/**/*.ts @favna
+/packages/eslint-plugin-result/**/*.ts @didinele
 /packages/event-iterator/**/*.ts @kyranet @vladfrangu @favna
 /packages/fetch/**/*.ts @favna @kyranet @vladfrangu
+/packages/iterator-utilities/**/*.ts @kyranet
 /packages/lexure/**/*.ts @kyranet @favna @vladfrangu
 /packages/node-utilities/**/*.ts @kyranet @favna @vladfrangu
 /packages/phisherman/**/*.ts @undiedgamer @favna @vladfrangu
@@ -18,6 +20,7 @@
 /packages/result/**/*.ts @kyranet @vladfrangu @favna
 /packages/snowflake/**/*.ts @favna @vladfrangu @kyranet
 /packages/stopwatch/**/*.ts @kyranet @vladfrangu
+/packages/string-store/**/*.ts @kyranet
 /packages/time-utilities/**/*.ts @favna @kyranet @vladfrangu
 /packages/ts-config/**/*.ts @favna
 /packages/utilities/**/*.ts @favna @kyranet @vladfrangu

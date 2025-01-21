@@ -1,25 +1,32 @@
 {
 	"name": "@sapphire/phisherman",
-	"version": "1.4.1",
+	"version": "2.0.1",
 	"description": "Wrapper around phisherman to easily check and report domains",
 	"author": "@sapphire",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
+	"main": "dist/cjs/index.cjs",
+	"module": "dist/esm/index.mjs",
+	"types": "dist/cjs/index.d.cts",
 	"exports": {
-		"import": "./dist/index.mjs",
-		"require": "./dist/index.js",
-		"types": "./dist/index.d.ts"
+		"import": {
+			"types": "./dist/esm/index.d.mts",
+			"default": "./dist/esm/index.mjs"
+		},
+		"require": {
+			"types": "./dist/cjs/index.d.cts",
+			"default": "./dist/cjs/index.cjs"
+		}
 	},
 	"homepage": "https://github.com/sapphiredev/utilities/tree/main/packages/phisherman",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
-		"build": "tsup",
+		"build": "yarn gen-index && tsup && yarn build:rename-cjs-index",
+		"build:rename-cjs-index": "tsx ../../scripts/rename-cjs-index.cts",
 		"docs": "typedoc-json-parser",
 		"prepack": "yarn build",
 		"bump": "cliff-jumper",
-		"check-update": "cliff-jumper --dry-run"
+		"check-update": "cliff-jumper --dry-run",
+		"gen-index": "tsx ../../scripts/gen-index.cts phisherman --write"
 	},
 	"dependencies": {
 		"@sapphire/fetch": "workspace:^"
@@ -30,13 +37,10 @@
 		"directory": "packages/phisherman"
 	},
 	"files": [
-		"dist/**/*.js*",
-		"dist/**/*.mjs*",
-		"dist/**/*.d*"
+		"dist/"
 	],
 	"engines": {
-		"node": ">=16.6.0",
-		"npm": ">=7.0.0"
+		"node": ">=18"
 	},
 	"keywords": [
 		"sapphiredev",
@@ -57,10 +61,13 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^1.10.0",
-		"tsup": "^6.5.0",
-		"typedoc": "^0.23.24",
-		"typedoc-json-parser": "^7.1.0",
-		"typescript": "^4.9.4"
+		"@favware/cliff-jumper": "^6.0.0",
+		"@sapphire/result": "workspace:^",
+		"esbuild-plugin-version-injector": "^1.2.1",
+		"tsup": "^8.3.5",
+		"tsx": "^4.19.2",
+		"typedoc": "^0.26.11",
+		"typedoc-json-parser": "^10.2.0",
+		"typescript": "~5.4.5"
 	}
 }

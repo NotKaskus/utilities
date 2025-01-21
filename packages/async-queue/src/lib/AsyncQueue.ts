@@ -1,4 +1,4 @@
-import { AsyncQueueEntry } from './AsyncQueueEntry';
+import { AsyncQueueEntry } from './_AsyncQueueEntry';
 
 /**
  * The AsyncQueue class used to sequentialize burst requests
@@ -23,7 +23,7 @@ export class AsyncQueue {
 	/**
 	 * The promises array
 	 */
-	private promises: AsyncQueueEntry[] = [];
+	private readonly promises: AsyncQueueEntry[] = [];
 
 	/**
 	 * Waits for last promise and queues a new one

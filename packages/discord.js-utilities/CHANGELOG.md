@@ -2,6 +2,208 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/discord.js-utilities@7.3.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.3.1...@sapphire/discord.js-utilities@7.3.2) - (2025-01-05)
+
+## 🐛 Bug Fixes
+
+- **discord.js:** Update code for latest discord.js and discord-api-types ([15bf4d5](https://github.com/sapphiredev/utilities/commit/15bf4d536ff7cc4f5414431360f937b04c2f7e1a)) ([#852](https://github.com/sapphiredev/utilities/pull/852) by @favna)
+
+# [@sapphire/discord.js-utilities@7.3.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.3.0...@sapphire/discord.js-utilities@7.3.1) - (2024-11-02)
+
+## 🏠 Refactor
+
+- Resolve several sonar issues ([ba915f9](https://github.com/sapphiredev/utilities/commit/ba915f93ce0907828ba17b2d5ae009631ceb860d)) ([#823](https://github.com/sapphiredev/utilities/pull/823) by @favna)
+
+## 🐛 Bug Fixes
+
+- Update for latest discord.js ([86dab68](https://github.com/sapphiredev/utilities/commit/86dab688e6d56f72b65848028ebb31b90ed8acc0)) ([#799](https://github.com/sapphiredev/utilities/pull/799) by @favna)
+
+# [@sapphire/discord.js-utilities@7.3.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.2.1...@sapphire/discord.js-utilities@7.3.0) - (2024-06-03)
+
+## 📝 Documentation
+
+- **discord.js-utilities:** Fix tsdoc comments ([04bc8e2](https://github.com/sapphiredev/utilities/commit/04bc8e220134ab6a576ccdb664f4fb9f8353a089))
+- **discord.js-utilities:** Fix tsdoc comment ([6f16000](https://github.com/sapphiredev/utilities/commit/6f160008982285f49f57811de5668a3648babb27))
+- **discord.js-utilities:** Fix tsdoc comments ([ea3f3d6](https://github.com/sapphiredev/utilities/commit/ea3f3d65b3635abdb5862985f0771d9c8e6e2fba))
+
+## 🚀 Features
+
+- **discord.js-utilities:** Add attachment type guards ([4660670](https://github.com/sapphiredev/utilities/commit/466067022153e31ed50ff9a9bc6c6948a9afd12d))
+
+# [@sapphire/discord.js-utilities@7.2.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.2.0...@sapphire/discord.js-utilities@7.2.1) - (2024-05-06)
+
+## 🐛 Bug Fixes
+
+- **PaginatedMessage:** Fix support for discordjs 14.5.2 ([07a0cfa](https://github.com/sapphiredev/utilities/commit/07a0cfa2d93dd7f45f72e27e4c51ba0fdbf2d7be))
+
+# [@sapphire/discord.js-utilities@7.2.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.6...@sapphire/discord.js-utilities@7.2.0) - (2024-04-13)
+
+## 🚀 Features
+
+- **discord.js-utilities:** Add components to MessageBuilder (#734) ([f463545](https://github.com/sapphiredev/utilities/commit/f4635450bdaa2838b95c5b0a23c1c6c221b77f7d))
+
+# [@sapphire/discord.js-utilities@7.1.6](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.6...@sapphire/discord.js-utilities@7.1.6) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/discord.js-utilities@7.1.5](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.5...@sapphire/discord.js-utilities@7.1.5) - (2023-12-27)
+
+## 🏠 Refactor
+
+- **PaginatedMessage:** Always put link buttons below select menus (#699) ([86b58d0](https://github.com/sapphiredev/utilities/commit/86b58d08caaa54f7a09c8b6472ede3f017cf3ca2))
+
+## 🐛 Bug Fixes
+
+- **PaginatedMessage:** Fixed link buttons not properly being added (#698) ([aa3e3eb](https://github.com/sapphiredev/utilities/commit/aa3e3ebb6c5a6842612da1427eda5e24bea99257))
+
+## 📝 Documentation
+
+- **createPartitionedMessageRow:** Fix documentation for docusaurus rendering ([0c8d013](https://github.com/sapphiredev/utilities/commit/0c8d0135689cfb4767d26f7a1176b8efb47d49b6))
+- **createPartitionedMessageRow:** Fix documentation for docusaurus rendering ([ab04d55](https://github.com/sapphiredev/utilities/commit/ab04d552102ecf742ec947367f444c9dd87d16df))
+
+# [@sapphire/discord.js-utilities@7.1.4](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.4...@sapphire/discord.js-utilities@7.1.4) - (2023-12-15)
+
+## 🐛 Bug Fixes
+
+- **PaginatedMessage:** Make it possible to disable adding page numbers to the footer through `setShouldAddFooterToEmbeds` ([dc18281](https://github.com/sapphiredev/utilities/commit/dc182811fdfbe208938ab5a736281aa2a18ee815))
+- **paginatedmessage:** Check for pageActions before throwing an error (#684) ([740b317](https://github.com/sapphiredev/utilities/commit/740b3170700f1b500549ab0e7d7f85ed2698f185))
+
+## 📝 Documentation
+
+- **PaginatedMessage:** Add AI generated tsdoc to remaining items ([4ca1c55](https://github.com/sapphiredev/utilities/commit/4ca1c5530ccd5b264c10e65b53b2d4f9916c5135))
+- **PaginatedMessage:** Add AI generated doc comments on all undocumented fields ([fdba2bb](https://github.com/sapphiredev/utilities/commit/fdba2bb1ae3beb088dc694c348b7a00d6db0f3bb))
+
+## 🪞 Styling
+
+- Run prettier on the codebase ([1d6e994](https://github.com/sapphiredev/utilities/commit/1d6e9941833b674eebb245d272ce879ce6a70427))
+
+# [@sapphire/discord.js-utilities@7.1.3](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.3...@sapphire/discord.js-utilities@7.1.3) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Properly split CJS and ESM ([3f9bd6a](https://github.com/sapphiredev/utilities/commit/3f9bd6a849143640ba62a58d6f1d71774e761ff4))
+
+# [@sapphire/discord.js-utilities@7.1.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.2...@sapphire/discord.js-utilities@7.1.2) - (2023-11-16)
+
+## 🐛 Bug Fixes
+
+- **paginatedmessage:** Fixed interacting with multiple users on multiple ephemeral interactions (#666) ([0c4ba3c](https://github.com/sapphiredev/utilities/commit/0c4ba3c7923d541b1e73dbcd8020b5832187fefe))
+
+## 📝 Documentation
+
+- **typeguards:** Improve the docs for isAnyInteraction and isAnyInteractableInteraction (#667) ([f4ec262](https://github.com/sapphiredev/utilities/commit/f4ec26242ab739f99437163043b601636e5338cf))
+
+# [@sapphire/discord.js-utilities@7.1.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.1.0...@sapphire/discord.js-utilities@7.1.0) - (2023-11-15)
+
+## 🚀 Features
+
+- **PaginatedMessage:** Improve `@discordjs/builders` support (#659) ([0cbf663](https://github.com/sapphiredev/utilities/commit/0cbf663065d5f7772c0d3c0d093dc1145614e7bb))
+
+# [@sapphire/discord.js-utilities@7.0.3](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.0.3...@sapphire/discord.js-utilities@7.0.3) - (2023-11-14)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Fixed `isNsfwChannel` typeguard by including `ChannelType.GuildMedia` (#665) ([7c6cfe2](https://github.com/sapphiredev/utilities/commit/7c6cfe239ba660fcf4e58a50e7691a2e622c0fda))
+
+## 📝 Documentation
+
+- **discord.js-utilities:** Update discord.js.org links (#662) ([9c92477](https://github.com/sapphiredev/utilities/commit/9c92477b5911d1fc92eea027958399550f6058a6))
+
+# [@sapphire/discord.js-utilities@7.0.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.0.1...@sapphire/discord.js-utilities@7.0.2) - (2023-08-29)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Output proper dist files ([75fded2](https://github.com/sapphiredev/utilities/commit/75fded2797d1a4888b43dc05ad2fbcd9b035162a))
+- **discord.js-utilities:** Revised type-guards for thread channels (#639) ([62f14dc](https://github.com/sapphiredev/utilities/commit/62f14dc21b6dd6dfef1575626334b0f450b42f98))
+
+# [@sapphire/discord.js-utilities@7.0.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@7.0.0...@sapphire/discord.js-utilities@7.0.1) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **tsconfig:** Set `noEmitHelpers` to false (#620) ([8ed04bf](https://github.com/sapphiredev/utilities/commit/8ed04bff735fbdff35855e0d0bdaf03a3686fefc))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/discord.js-utilities@7.0.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.1.0...@sapphire/discord.js-utilities@7.0.0) - (2023-05-28)
+
+## 🏠 Refactor
+
+- **PaginatedMessage:** Cleaned up some internal type casting. ([870252d](https://github.com/sapphiredev/utilities/commit/870252d2748c2d4050d5003e510742064d6328b6))
+- **PaginatedMessage:** The callback union is removed from `messages` property. pages are *always* processed with `resolvePage` meaning they can never be a callback. ([4407907](https://github.com/sapphiredev/utilities/commit/44079071bddff7f1998d787a2b8fd782a1a3c112))
+- **PaginatedMessage:** `PaginatedMessageMessageOptionsUnion` now omits `components` as it was not handled anyway. ([d60b8e2](https://github.com/sapphiredev/utilities/commit/d60b8e27752c43df5ffe04010579523af42ad825))
+- **PaginatedMessage:** Allow PaginatedMessage actions `run` to be optional and instead get handled by Sapphire interaction-handlers ([d87eede](https://github.com/sapphiredev/utilities/commit/d87eedeb151b4d9d780bf304bf7d1bcd0d670d3e))
+  - 💥 **BREAKING CHANGE:** `updateCurrentPage` components are now resolved from the `actions` property
+instead of the `components` property. This makes it consistent with all the other
+page manipulation methods
+  - 💥 **BREAKING CHANGE:** Removed `getComponents` since it is effectively useless due to the above change.
+
+## 🚀 Features
+
+- **PaginatedMessage:** Added utility functions for type-guarding action variants. ([5c0ae46](https://github.com/sapphiredev/utilities/commit/5c0ae46778729f658462f04e6ad1b92565b0c0d2))
+
+# [@sapphire/discord.js-utilities@6.1.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.7...@sapphire/discord.js-utilities@6.1.0) - (2023-05-05)
+
+## 🚀 Features
+
+- **PaginatedMessage:** Add support for all select menus (#589) ([4858486](https://github.com/sapphiredev/utilities/commit/4858486714192e8d37cf69f2aeda3002c1bfb9aa))
+- **PaginatedMessage:** Add support for per-page actions (#587) ([b917236](https://github.com/sapphiredev/utilities/commit/b9172364bc46a0adef2708ff79ad756bc78f6b1d))
+- **PaginatedMessage:** Add method to update pages after response (#584) ([db13068](https://github.com/sapphiredev/utilities/commit/db130684ff3c1680f736451361eec80686a783e0))
+
+# [@sapphire/discord.js-utilities@6.0.7](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.6...@sapphire/discord.js-utilities@6.0.7) - (2023-05-02)
+
+## 🐛 Bug Fixes
+
+- **PaginatedMessage:** Only add options and placeholder to the built-in StringSelectMenu (#575) ([49d588b](https://github.com/sapphiredev/utilities/commit/49d588b007754bfae7ffa59be6ec0d1c266447f4))
+- **paginatedmessage:** Fix checks for `actionIsButtonOrMenu` ([3f5d500](https://github.com/sapphiredev/utilities/commit/3f5d5000701c34328038c8a3e3dede021932a27b))
+
+## 📝 Documentation
+
+- **paginatedmessage:** Fix examples ([c080740](https://github.com/sapphiredev/utilities/commit/c080740a6eeb151263827836d76463430624d62a))
+
+# [@sapphire/discord.js-utilities@6.0.6](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.5...@sapphire/discord.js-utilities@6.0.6) - (2023-04-17)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Add tslib dependency to fix __exportStar not being defined ([2f6e4e6](https://github.com/sapphiredev/utilities/commit/2f6e4e65907bfe768a97b37830a10d5cadd75a1e))
+
+# [@sapphire/discord.js-utilities@6.0.5](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.4...@sapphire/discord.js-utilities@6.0.5) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Add missing type modifiers ([b372e79](https://github.com/sapphiredev/utilities/commit/b372e796c9e030ae5d2b795a0368471738719fb5))
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+
+# [@sapphire/discord.js-utilities@6.0.4](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.3...@sapphire/discord.js-utilities@6.0.4) - (2023-03-14)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Fixed deprecated code (#565) ([e6c8000](https://github.com/sapphiredev/utilities/commit/e6c8000b4e982c0707bb3c9ba47bf064702704ed))
+
+# [@sapphire/discord.js-utilities@6.0.3](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.2...@sapphire/discord.js-utilities@6.0.3) - (2023-03-09)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Fixed `isAnyInteraction` types (#559) ([334c16c](https://github.com/sapphiredev/utilities/commit/334c16c690e65f4d62c6d1442ab65b3d65122eae))
+
+# [@sapphire/discord.js-utilities@6.0.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.0...@sapphire/discord.js-utilities@6.0.2) - (2023-02-18)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Type fix for discord-api-types 0.37.35 ([73d073a](https://github.com/sapphiredev/utilities/commit/73d073a240e8bf630907d3b33e2c0a074ea8fda5))
+- **discord.js-utilities:** Type fix for discord-api-types 0.37.35 ([153dad4](https://github.com/sapphiredev/utilities/commit/153dad4ed0d65020f8cb62bea57bc61e416b2413))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **discord.js-utilities:** Fixed deprecated code ([b5d55e9](https://github.com/sapphiredev/utilities/commit/b5d55e938d2aff84cba5f64955358f00d6f87fc7))
+
+# [@sapphire/discord.js-utilities@6.0.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@6.0.0...@sapphire/discord.js-utilities@6.0.1) - (2023-01-13)
+
+## 🐛 Bug Fixes
+
+- **discord.js-utilities:** Fixed deprecated code ([b5d55e9](https://github.com/sapphiredev/utilities/commit/b5d55e938d2aff84cba5f64955358f00d6f87fc7))
+
 # [@sapphire/discord.js-utilities@6.0.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord.js-utilities@5.1.2...@sapphire/discord.js-utilities@6.0.0) - (2023-01-08)
 
 ## 📝 Documentation

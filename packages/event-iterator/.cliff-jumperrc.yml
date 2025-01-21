@@ -1,3 +1,10 @@
 name: event-iterator
 org: sapphire
+install: true
 packagePath: packages/event-iterator
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

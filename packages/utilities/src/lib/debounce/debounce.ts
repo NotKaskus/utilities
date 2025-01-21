@@ -1,9 +1,9 @@
 /**
- * lodash (Custom Build) <https://lodash.com/>
+ * lodash (Custom Build) https://lodash.com/
  * Build: `lodash modularize exports="npm" -o ./`
- * Copyright jQuery Foundation and other contributors <https://jquery.org/>
- * Released under MIT license <https://lodash.com/license>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright jQuery Foundation and other contributors https://jquery.org/
+ * Released under MIT license https://lodash.com/license
+ * Based on Underscore.js 1.8.3 http://underscorejs.org/LICENSE
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
 
@@ -61,7 +61,6 @@ export interface DebouncedFunc<FnArgumentsType extends any[], FnReturnType> {
  * See David Corbacho’s article for details over the differences between _.debounce and _.throttle.
  *
  * @param func The function to debounce.
- * @param wait The number of milliseconds to delay.
  * @param options The options object.
  * @return Returns the new debounced function.
  */
