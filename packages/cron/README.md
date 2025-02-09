@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/cron
 
 **Cron utilities for JavaScript.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/cron?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/cron)
 [![npm](https://img.shields.io/npm/v/@sapphire/cron?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/cron)
 
@@ -17,10 +16,8 @@
 
 -   [Features](#features)
 -   [Installation](#installation)
--   [Usage](#usage)
-    -   [Basic Usage](#basic-usage)
 -   [Buy us some doughnuts](#buy-us-some-doughnuts)
--   [Contributors ✨](#contributors-%E2%9C%A8)
+-   [Contributors](#contributors)
 
 ## Features
 

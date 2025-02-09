@@ -1,3 +1,10 @@
 name: lexure
 org: sapphire
+install: true
 packagePath: packages/lexure
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

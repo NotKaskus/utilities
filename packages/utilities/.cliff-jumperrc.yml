@@ -1,3 +1,10 @@
 name: utilities
 org: sapphire
+install: true
 packagePath: packages/utilities
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

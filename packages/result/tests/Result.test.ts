@@ -1,9 +1,5 @@
 import { setTimeout as sleep } from 'node:timers/promises';
-import { err, none, ok, Option, Result, ResultError, some } from '../src/index';
-import type { None } from '../src/lib/Option/None';
-import type { Some } from '../src/lib/Option/Some';
-import type { Err } from '../src/lib/Result/Err';
-import type { Ok } from '../src/lib/Result/Ok';
+import { err, none, ok, Option, Result, ResultError, some, type Err, type None, type Ok, type Some } from '../src/index';
 import { error, makeThrow } from './shared';
 
 describe('Result', () => {
@@ -16,7 +12,7 @@ describe('Result', () => {
 
 			test('GIVEN err THEN always returns false', () => {
 				const x = err('Some error message');
-				expect<false>(x.isOk()).toBe(false);
+				expect<boolean>(x.isOk()).toBe(false);
 			});
 		});
 
@@ -45,7 +41,7 @@ describe('Result', () => {
 				const x = err('Some error message');
 				const cb = vi.fn((value: number) => value > 1);
 
-				expect<false>(x.isOkAnd(cb)).toBe(false);
+				expect<boolean>(x.isOkAnd(cb)).toBe(false);
 				expect(cb).not.toHaveBeenCalled();
 			});
 		});
@@ -53,7 +49,7 @@ describe('Result', () => {
 		describe('isErr', () => {
 			test('GIVEN ok THEN returns false', () => {
 				const x = ok(42);
-				expect<false>(x.isErr()).toBe(false);
+				expect<boolean>(x.isErr()).toBe(false);
 			});
 
 			test('GIVEN err THEN returns true', () => {
@@ -140,6 +136,15 @@ describe('Result', () => {
 				expect(x.map(cb)).toEqual(err('Some error message'));
 				expect(cb).not.toHaveBeenCalled();
 			});
+
+			test('Given ok THEN chain map and mapErr THEN returns Ok<number, string>', () => {
+				const x = Result.from<number, Error>(2);
+				const cb = vi.fn((value: number) => value);
+				const mapChain = x.map(cb).mapErr((error) => error.message);
+
+				expectTypeOf(mapChain).toMatchTypeOf<Result<number, string>>();
+				expect<Result<number, string>>(mapChain).toEqual(ok(2));
+			});
 		});
 
 		describe('mapInto', () => {
@@ -159,6 +164,15 @@ describe('Result', () => {
 
 				expect(x.mapInto(cb)).toBe(x);
 				expect(cb).not.toHaveBeenCalled();
+			});
+
+			test('Given ok THEN chain mapInto and map THEN returns Ok<number, string>', () => {
+				const x = Result.from<number, string>(2);
+				const cb = vi.fn((value: number) => ok(value));
+				const mapChain = x.mapInto(cb).map((value) => value + 1);
+
+				expectTypeOf(mapChain).toMatchTypeOf<Result<number, string>>();
+				expect<Result<number, string>>(mapChain).toEqual(ok(3));
 			});
 		});
 
@@ -225,6 +239,15 @@ describe('Result', () => {
 				expect(cb).toHaveBeenCalledTimes(1);
 				expect(cb).toHaveBeenCalledWith('Some error message');
 				expect(cb).toHaveLastReturnedWith(18);
+			});
+
+			test('Given ok THEN chain mapErr and map THEN returns Ok<number, string>', () => {
+				const x = Result.from<number, string>(42);
+				const cb = vi.fn((error: string) => error);
+				const mapChain = x.mapErr(cb).map((value) => value + 1);
+
+				expectTypeOf(mapChain).toMatchTypeOf<Result<number, string>>();
+				expect<Result<number, string>>(mapChain).toEqual(ok(43));
 			});
 		});
 
@@ -723,14 +746,14 @@ describe('Result', () => {
 				const x = ok(3);
 				const y = err(3);
 
-				expect<false>(x.eq(y)).toBe(false);
+				expect<boolean>(x.eq(y)).toBe(false);
 			});
 
 			test('GIVEN x=err(e), y=ok(t) THEN always returns false', () => {
 				const x = err(3);
 				const y = ok(3);
 
-				expect<false>(x.eq(y)).toBe(false);
+				expect<boolean>(x.eq(y)).toBe(false);
 			});
 
 			test('GIVEN x=err(e), y=err(e) THEN returns true', () => {
@@ -767,14 +790,14 @@ describe('Result', () => {
 				const x = ok(3);
 				const y = err(3);
 
-				expect<true>(x.ne(y)).toBe(true);
+				expect<boolean>(x.ne(y)).toBe(true);
 			});
 
 			test('GIVEN x=err(e), y=ok(t) THEN always returns true', () => {
 				const x = err(3);
 				const y = ok(3);
 
-				expect<true>(x.ne(y)).toBe(true);
+				expect<boolean>(x.ne(y)).toBe(true);
 			});
 
 			test('GIVEN x=err(e), y=err(e) THEN returns false', () => {
@@ -820,19 +843,41 @@ describe('Result', () => {
 	});
 
 	describe('ok', () => {
-		test('GIVEN ok THEN returns { isOk->true, isErr->false }', () => {
+		test('GIVEN ok without an argument THEN returns Ok<undefined>', () => {
+			const x = ok();
+
+			expectTypeOf(x).toMatchTypeOf<Ok<undefined>>();
+			expectTypeOf(x).toMatchTypeOf<Result<undefined, Error>>();
+			expect<boolean>(x.isOk()).toBe(true);
+			expect<boolean>(x.isErr()).toBe(false);
+		});
+
+		test('GIVEN ok with an argument THEN returns Ok<T>', () => {
 			const x = ok(42);
 
+			expectTypeOf(x).toMatchTypeOf<Ok<number>>();
+			expectTypeOf(x).toMatchTypeOf<Result<number, Error>>();
 			expect<boolean>(x.isOk()).toBe(true);
-			expect<false>(x.isErr()).toBe(false);
+			expect<boolean>(x.isErr()).toBe(false);
 		});
 	});
 
 	describe('err', () => {
-		test('GIVEN err THEN returns { isOk->false, isErr->true }', () => {
+		test('GIVEN err without an argument THEN returns Err<undefined>', () => {
+			const x = err();
+
+			expectTypeOf(x).toMatchTypeOf<Err<undefined>>();
+			expectTypeOf(x).toMatchTypeOf<Result<number, undefined>>();
+			expect<boolean>(x.isOk()).toBe(false);
+			expect<boolean>(x.isErr()).toBe(true);
+		});
+
+		test('GIVEN err with an argument THEN returns Err<T>', () => {
 			const x = err(new Error());
 
-			expect<false>(x.isOk()).toBe(false);
+			expectTypeOf(x).toMatchTypeOf<Err<Error>>();
+			expectTypeOf(x).toMatchTypeOf<Result<number, Error>>();
+			expect<boolean>(x.isOk()).toBe(false);
 			expect<boolean>(x.isErr()).toBe(true);
 		});
 	});
@@ -885,11 +930,16 @@ describe('Result', () => {
 			['() => throw E', makeThrow],
 			['() => Promise.reject(E)', () => Promise.reject(error)],
 			['() => Err(E)', () => err(error)],
-			['() => Promise.reject(Err(E))', () => Promise.reject(err(error))]
+			['() => Promise.reject(Err(E))', () => Promise.reject(err(error))] // NOSONAR
 		])('GIVEN fromAsync(%s) THEN returns Err(E)', async (_, resolvable) => {
-			const x = await fromAsync(resolvable);
+			let x = await fromAsync(resolvable);
 
-			expect(x).toStrictEqual(err(error));
+			if (_ === '() => Promise.reject(Err(E))') {
+				// @ts-expect-error this test case double nests the error
+				x = x.unwrapErr();
+			}
+
+			expect(x).toEqual(err(error));
 		});
 	});
 
@@ -938,6 +988,16 @@ describe('Result', () => {
 			const c: Result<bigint, string> = err('Error!');
 
 			expect<Expected>(Result.any([a, b, c])).toEqual(err(['Not a number!', 'Not a boolean!', 'Error!']));
+		});
+	});
+
+	describe('@@toStringTag', () => {
+		test('GIVEN Some THEN returns "Some"', () => {
+			expect<string>(ok(1)[Symbol.toStringTag]).toBe('Ok');
+		});
+
+		test('GIVEN None THEN returns "None"', () => {
+			expect<string>(err(1)[Symbol.toStringTag]).toBe('Err');
 		});
 	});
 

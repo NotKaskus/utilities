@@ -1,3 +1,10 @@
 name: ratelimits
 org: sapphire
+install: true
 packagePath: packages/ratelimits
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+gitRepo: sapphiredev/utilities
+gitHostVariant: github

@@ -1,5 +1,25 @@
-const ProcessId = 1n;
-const WorkerId = 0n;
+const IncrementSymbol = Symbol('@sapphire/snowflake.increment');
+const EpochSymbol = Symbol('@sapphire/snowflake.epoch');
+const EpochNumberSymbol = Symbol('@sapphire/snowflake.epoch.number');
+const ProcessIdSymbol = Symbol('@sapphire/snowflake.processId');
+const WorkerIdSymbol = Symbol('@sapphire/snowflake.workerId');
+
+/**
+ * The maximum value the `workerId` field accepts in snowflakes.
+ */
+export const MaximumWorkerId = 0b11111n;
+
+/**
+ * The maximum value the `processId` field accepts in snowflakes.
+ */
+export const MaximumProcessId = 0b11111n;
+
+/**
+ * The maximum value the `increment` field accepts in snowflakes.
+ */
+export const MaximumIncrement = 0b111111111111n;
+
+const TimestampFieldDivisor = 2 ** 22;
 
 /**
  * A class for generating and deconstructing Twitter snowflakes.
@@ -22,29 +42,85 @@ export class Snowflake {
 	public decode = this.deconstruct;
 
 	/**
-	 * Internal incrementor for generating snowflakes
-	 * @internal
-	 */
-	#increment = 0n;
-
-	/**
 	 * Internal reference of the epoch passed in the constructor
 	 * @internal
 	 */
-	#epoch: bigint;
+	private readonly [EpochSymbol]: bigint;
+
+	/**
+	 * Internal reference of the epoch passed in the constructor as a number
+	 * @internal
+	 */
+	private readonly [EpochNumberSymbol]: number;
+
+	/**
+	 * Internal incrementor for generating snowflakes
+	 * @internal
+	 */
+	private [IncrementSymbol] = 0n;
+
+	/**
+	 * The process ID that will be used by default in the generate method
+	 * @internal
+	 */
+	private [ProcessIdSymbol] = 1n;
+
+	/**
+	 * The worker ID that will be used by default in the generate method
+	 * @internal
+	 */
+	private [WorkerIdSymbol] = 0n;
 
 	/**
 	 * @param epoch the epoch to use
 	 */
 	public constructor(epoch: number | bigint | Date) {
-		this.#epoch = BigInt(epoch instanceof Date ? epoch.getTime() : epoch);
+		this[EpochSymbol] = BigInt(epoch instanceof Date ? epoch.getTime() : epoch);
+		this[EpochNumberSymbol] = Number(this[EpochSymbol]);
 	}
 
 	/**
-	 * The epoch for this snowflake.
+	 * The epoch for this snowflake, as a bigint
 	 */
 	public get epoch(): bigint {
-		return this.#epoch;
+		return this[EpochSymbol];
+	}
+
+	/**
+	 * The epoch for this snowflake, as a number
+	 */
+	public get epochNumber(): number {
+		return this[EpochNumberSymbol];
+	}
+
+	/**
+	 * Gets the configured process ID
+	 */
+	public get processId(): bigint {
+		return this[ProcessIdSymbol];
+	}
+
+	/**
+	 * Sets the process ID that will be used by default for the {@link generate} method
+	 * @param value The new value, will be coerced to BigInt and masked with `0b11111n`
+	 */
+	public set processId(value: number | bigint) {
+		this[ProcessIdSymbol] = BigInt(value) & MaximumProcessId;
+	}
+
+	/**
+	 * Gets the configured worker ID
+	 */
+	public get workerId(): bigint {
+		return this[WorkerIdSymbol];
+	}
+
+	/**
+	 * Sets the worker ID that will be used by default for the {@link generate} method
+	 * @param value The new value, will be coerced to BigInt and masked with `0b11111n`
+	 */
+	public set workerId(value: number | bigint) {
+		this[WorkerIdSymbol] = BigInt(value) & MaximumWorkerId;
 	}
 
 	/**
@@ -59,21 +135,30 @@ export class Snowflake {
 	 * ```
 	 * @returns A unique snowflake
 	 */
-	public generate({ increment, timestamp = Date.now(), workerId = WorkerId, processId = ProcessId }: SnowflakeGenerateOptions = {}) {
+	public generate({
+		increment,
+		timestamp = Date.now(),
+		workerId = this[WorkerIdSymbol],
+		processId = this[ProcessIdSymbol]
+	}: SnowflakeGenerateOptions = {}) {
 		if (timestamp instanceof Date) timestamp = BigInt(timestamp.getTime());
 		else if (typeof timestamp === 'number') timestamp = BigInt(timestamp);
 		else if (typeof timestamp !== 'bigint') {
 			throw new TypeError(`"timestamp" argument must be a number, bigint, or Date (received ${typeof timestamp})`);
 		}
 
-		if (typeof increment === 'bigint' && increment >= 4095n) increment = 0n;
-		else {
-			increment = this.#increment++;
-			if (this.#increment >= 4095n) this.#increment = 0n;
+		if (typeof increment !== 'bigint') {
+			increment = this[IncrementSymbol];
+			this[IncrementSymbol] = (increment + 1n) & MaximumIncrement;
 		}
 
 		// timestamp, workerId, processId, increment
-		return ((timestamp - this.#epoch) << 22n) | ((workerId & 0b11111n) << 17n) | ((processId & 0b11111n) << 12n) | increment;
+		return (
+			((timestamp - this[EpochSymbol]) << 22n) |
+			((workerId & MaximumWorkerId) << 17n) |
+			((processId & MaximumProcessId) << 12n) |
+			(increment & MaximumIncrement)
+		);
 	}
 
 	/**
@@ -88,13 +173,14 @@ export class Snowflake {
 	 */
 	public deconstruct(id: string | bigint): DeconstructedSnowflake {
 		const bigIntId = BigInt(id);
+		const epoch = this[EpochSymbol];
 		return {
 			id: bigIntId,
-			timestamp: (bigIntId >> 22n) + this.#epoch,
-			workerId: (bigIntId >> 17n) & 0b11111n,
-			processId: (bigIntId >> 12n) & 0b11111n,
-			increment: bigIntId & 0b111111111111n,
-			epoch: this.#epoch
+			timestamp: (bigIntId >> 22n) + epoch,
+			workerId: (bigIntId >> 17n) & MaximumWorkerId,
+			processId: (bigIntId >> 12n) & MaximumProcessId,
+			increment: bigIntId & MaximumIncrement,
+			epoch
 		};
 	}
 
@@ -104,7 +190,7 @@ export class Snowflake {
 	 * @returns The UNIX timestamp that is stored in `id`.
 	 */
 	public timestampFrom(id: string | bigint): number {
-		return Number((BigInt(id) >> 22n) + this.#epoch);
+		return Math.floor(Number(id) / TimestampFieldDivisor) + this[EpochNumberSymbol];
 	}
 
 	/**
@@ -127,14 +213,23 @@ export class Snowflake {
 	 * ```
 	 */
 	public static compare(a: string | bigint, b: string | bigint): -1 | 0 | 1 {
-		if (typeof a === 'bigint' || typeof b === 'bigint') {
-			if (typeof a === 'string') a = BigInt(a);
-			else if (typeof b === 'string') b = BigInt(b);
-			return a === b ? 0 : a < b ? -1 : 1;
-		}
-
-		return a === b ? 0 : a.length < b.length ? -1 : a.length > b.length ? 1 : a < b ? -1 : 1;
+		const typeA = typeof a;
+		return typeA === typeof b
+			? typeA === 'string'
+				? cmpString(a as string, b as string)
+				: cmpBigInt(a as bigint, b as bigint)
+			: cmpBigInt(BigInt(a), BigInt(b));
 	}
+}
+
+/** @internal */
+function cmpBigInt(a: bigint, b: bigint) {
+	return a === b ? 0 : a < b ? -1 : 1;
+}
+
+/** @internal */
+function cmpString(a: string, b: string) {
+	return a === b ? 0 : a.length < b.length ? -1 : a.length > b.length ? 1 : a < b ? -1 : 1;
 }
 
 /**

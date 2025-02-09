@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/fetch
 
-**Tiny wrapper around cross-fetch for improved TypeScript and data type support**
+**Tiny wrapper around Node's global `fetch` for improved TypeScript and data type support**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/fetch?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/fetch)
 [![npm](https://img.shields.io/npm/v/@sapphire/fetch?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/fetch)
 
@@ -15,29 +14,28 @@
 
 **Table of Contents**
 
--   [@sapphire/fetch](#sapphirefetch)
-    -   [Description](#description)
-    -   [Features](#features)
-    -   [Installation](#installation)
-    -   [Usage](#usage)
-        -   [`GET`ting JSON data](#getting-json-data)
-        -   [`GET`ting Buffer data (images, etc.)](#getting-buffer-data-images-etc)
-        -   [`POST`ing JSON data](#posting-json-data)
-    -   [Buy us some doughnuts](#buy-us-some-doughnuts)
-    -   [Contributors ✨](#contributors-%E2%9C%A8)
+-   [Description](#description)
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+    -   [`GET`ting JSON data](#getting-json-data)
+    -   [`GET`ting Buffer data (images, etc.)](#getting-buffer-data-images-etc)
+    -   [`POST`ing JSON data](#posting-json-data)
+-   [Buy us some doughnuts](#buy-us-some-doughnuts)
+-   [Contributors](#contributors)
 
 ## Description
 
-[cross-fetch] is already a great library for making API calls, but because it focuses solely on bringing the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to Node.js, it doesn't provide specific error messages and handling for different return types (JSON, Buffer, plain text, etc). This is where `@sapphire/fetch` comes in. The syntax is more restrictive than that of [cross-fetch], but that makes it consistent and easier to use in TypeScript.
+Node has a great global `fetch` (powered by [undici]) for making API calls, but because it focuses solely on bringing the [Fetch API][fetch-mdn] to Node.js, it doesn't provide specific error messages and handling for different return types (JSON, Buffer, plain text, etc). This is where `@sapphire/fetch` comes in. The syntax is more restrictive than that of [undici], but that makes it consistent and easier to use in TypeScript.
 
 ## Features
 
 -   Written in TypeScript
 -   Fully tested
--   Exported `enum` for the common return data types.
--   Throws distinctive errors when the API returns a "not ok" status code to make them easier to understand.
--   Enforces casting the return type when requesting JSON data, to ensure your return data is strictly typed.
--   Uses [cross-fetch] so this package can be used in NodeJS (where it uses [node-fetch]) and browser (where it uses [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API))
+-   Exported `enum` for the common return data types
+-   Throws distinctive errors when the API returns a "not ok" status code to make them easier to understand
+-   Enforces casting the return type when requesting JSON data, to ensure your return data is strictly typed
+-   Uses global `fetch`, which for NodeJS is [undici] and for browsers is the [Fetch API][fetch-mdn]
 
 ## Installation
 
@@ -49,9 +47,31 @@ npm install @sapphire/fetch
 
 ## Usage
 
-**Note:** While this section uses `import`, it maps 1:1 with CommonJS' require syntax. For example, `import { fetch } from '@sapphire/fetch'` is the same as `const { fetch } = require('@sapphire/fetch')`.
+> [!NOTE]
+> While this section uses `import`, it maps 1:1 with CommonJS' require syntax. For example,
+>
+> ```ts
+> import { fetch } from '@sapphire/fetch';
+> ```
+>
+> is the same as
+>
+> ```ts
+> const { fetch } = require('@sapphire/fetch');
+> ```
 
-**Note**: `fetch` can also be imported as a default import: `import fetch from '@sapphire/fetch'`.
+> [!IMPORTANT]
+> When providing a serializable object to the `body` option, `@sapphire/fetch` will automatically call `JSON.stringify` on the object. This means you can pass an object directly to the `body` option without having to call `JSON.stringify` yourself.
+> If the body is _not_ serializable (such as a `File`, `Buffer`, or `Blob`), the body will be sent as-is.
+> Serializability is calculated based on:
+>
+> -   If the body is `null`
+> -   If the body's `.constructor` property is `undefined`
+> -   If the body's `.constructor.name` property is `Object`
+> -   If the body has a function property named `toJSON`
+
+> [!WARNING]
+> Because `@sapphire/fetch` aims to be as close to global fetch as possible, it doesn't support proxy options that a library like undici does. If you want to use a proxy, you should use undici directly.
 
 ### `GET`ting JSON data
 
@@ -92,7 +112,7 @@ console.log(sapphireLogo);
 // Import the fetch function
 import { fetch, FetchResultTypes, FetchMethods } from '@sapphire/fetch';
 
-// Fetch the data. No need to call `.json()` after making the request!
+// Post the data. No need to call `.json()` after making the request!
 const responseData = await fetch(
 	'https://jsonplaceholder.typicode.com/todos',
 	{
@@ -100,9 +120,7 @@ const responseData = await fetch(
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({
-			name: 'John Doe'
-		})
+		body: { name: 'John Doe' }
 	},
 	FetchResultTypes.JSON
 );
@@ -140,5 +158,5 @@ Thank you to all the people who already contributed to Sapphire!
 
 <!-- LINKS -->
 
-[node-fetch]: https://github.com/node-fetch/node-fetch
-[cross-fetch]: https://github.com/lquixada/cross-fetch
+[fetch-mdn]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+[undici]: https://github.com/nodejs/undici

@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/time-utilities@1.7.13](https://github.com/sapphiredev/utilities/compare/@sapphire/time-utilities@1.7.12...@sapphire/time-utilities@1.7.13) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- Move browser imports ([100ffb0](https://github.com/sapphiredev/utilities/commit/100ffb0a2471bb9f74cc580d282d11059e1a0a68)) ([#826](https://github.com/sapphiredev/utilities/pull/826) by @kyranet)
+- **deps:** Update all non-major dependencies ([083376a](https://github.com/sapphiredev/utilities/commit/083376aac55094dbeddb5194e8a8f0d794b8cceb)) ([#763](https://github.com/sapphiredev/utilities/pull/763) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e7fdc5d](https://github.com/sapphiredev/utilities/commit/e7fdc5db3632a7f90292ef3978898da32730343a)) ([#752](https://github.com/sapphiredev/utilities/pull/752) by @renovate[bot])
+
+## 📝 Documentation
+
+- **readme:** Fix urls to other readmes ([848968e](https://github.com/sapphiredev/utilities/commit/848968e982098accf4242cadd6956150ba15ec62))
+- **readme:** Fix readme table of contents ([c60e8bd](https://github.com/sapphiredev/utilities/commit/c60e8bd9fc89156cf973871597ec3f0ef0308c08))
+
+# [@sapphire/time-utilities@1.7.12](https://github.com/sapphiredev/utilities/compare/@sapphire/time-utilities@1.7.12...@sapphire/time-utilities@1.7.12) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/time-utilities@1.7.11](https://github.com/sapphiredev/utilities/compare/@sapphire/time-utilities@1.7.11...@sapphire/time-utilities@1.7.11) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **time-utilities:** Properly split CJS, ESM and IIFE ([c8b75e0](https://github.com/sapphiredev/utilities/commit/c8b75e0f4bc4df0d165b9e93d2e2b3128a7517a3))
+- Update export mapping for proper ESM/CJS split ([dd0cff8](https://github.com/sapphiredev/utilities/commit/dd0cff8e9b03a15812f25f7a1180501a92422629))
+
+# [@sapphire/time-utilities@1.7.10](https://github.com/sapphiredev/utilities/compare/@sapphire/time-utilities@1.7.9...@sapphire/time-utilities@1.7.10) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/time-utilities@1.7.9](https://github.com/sapphiredev/utilities/compare/@sapphire/time-utilities@1.7.8...@sapphire/time-utilities@1.7.9) - (2023-03-15)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#514) ([21b07d5](https://github.com/sapphiredev/utilities/commit/21b07d5db529a0d982647a60de98e46f36f1ac93))
+- **deps:** Update all non-major dependencies (#505) ([6178296](https://github.com/sapphiredev/utilities/commit/617829649e1e4deeee02b14533b5377cd5bc1fb3))
+- **deps:** Update all non-major dependencies (#466) ([dc08606](https://github.com/sapphiredev/utilities/commit/dc08606a97154e47c65536123ac5f8b1262f7bd2))
+
+## 📝 Documentation
+
+- Add @06000208 as a contributor ([fa3349e](https://github.com/sapphiredev/utilities/commit/fa3349e55ce4ad008785211dec7bf8e2b5d933df))
+- Add @didinele as a contributor ([42ef7b6](https://github.com/sapphiredev/utilities/commit/42ef7b656c48fd0e720119db1d622c8bba2791e9))
+- Add @goestav as a contributor ([0e56a92](https://github.com/sapphiredev/utilities/commit/0e56a92a4e2d0942bfa207f81a8cb03b32312034))
+- Add @CitTheDev as a contributor ([34169ea](https://github.com/sapphiredev/utilities/commit/34169eae1dc0476ccf5a6c4f36e28602a204829e))
+- Add @legendhimslef as a contributor ([059b6f1](https://github.com/sapphiredev/utilities/commit/059b6f1ab5362d46d58624d06c1aa39192b0716f))
+- **time-utilities:** Remove usage (#491) ([c479153](https://github.com/sapphiredev/utilities/commit/c47915313bb2ca6faa6bc41092e0a8162dfadadb))
+- Add @r-priyam as a contributor ([fb278ba](https://github.com/sapphiredev/utilities/commit/fb278bacf627ec6fc88752eafeb12df5f3177a2c))
+
 # [@sapphire/time-utilities@1.7.8](https://github.com/sapphiredev/utilities/compare/@sapphire/time-utilities@1.7.7...@sapphire/time-utilities@1.7.8) - (2022-09-18)
 
 ## 🐛 Bug Fixes

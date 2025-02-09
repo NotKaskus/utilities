@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/time-utilities
 
 **Time utilities for JavaScript.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/time-utilities?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/time-utilities)
 [![npm](https://img.shields.io/npm/v/@sapphire/time-utilities?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/time-utilities)
 
@@ -19,7 +18,7 @@
 -   [Features](#features)
 -   [Installation](#installation)
 -   [Buy us some doughnuts](#buy-us-some-doughnuts)
--   [Contributors ✨](#contributors-%E2%9C%A8)
+-   [Contributors](#contributors)
 
 ## Description
 
@@ -66,7 +65,7 @@ Thank you to all the people who already contributed to Sapphire!
 </a>
 
 [contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
-[cron-readme]: ../cron/#readme
-[duration-readme]: ../duration#readme
-[timer-manager-readme]: ../timer-manager#readme
-[timestamp-readme]: ../timestamp#readme
+[cron-readme]: https://github.com/sapphiredev/utilities/blob/main/packages/cron/README.md
+[duration-readme]: https://github.com/sapphiredev/utilities/blob/main/packages/duration/README.md
+[timer-manager-readme]: https://github.com/sapphiredev/utilities/blob/main/packages/timer-manager/README.md
+[timestamp-readme]: https://github.com/sapphiredev/utilities/blob/main/packages/timestamp/README.md
