@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/ts-config
 
 **TypeScript configuration for all Sapphire Community repositories.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/ts-config?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/ts-config)
 [![npm](https://img.shields.io/npm/v/@sapphire/ts-config?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/ts-config)
 
@@ -17,12 +16,13 @@
 
 -   [Installation](#installation)
 -   [Usage](#usage)
-    -   [Base Config](#base-config)
-    -   [Config without decorators](#config-without-decorators)
-    -   [Config with extra strict compiler options](#config-with-extra-strict-compiler-options)
-    -   [Config with extra strict compiler options and without decorators](#config-with-extra-strict-compiler-options-and-without-decorators)
+    -   [Base](#base)
+    -   [Extra Strict](#extra-strict)
+    -   [Decorators](#decorators)
+    -   [Verbatim](#verbatim)
+    -   [Bundler](#bundler)
 -   [Buy us some doughnuts](#buy-us-some-doughnuts)
--   [Contributors ✨](#contributors-%E2%9C%A8)
+-   [Contributors](#contributors)
 
 ## Installation
 
@@ -36,133 +36,87 @@ npm install --save-dev @sapphire/ts-config
 
 ## Usage
 
-### Base Config
+This package ships a couple of different sets of tsconfig, they should be used in an array of
+`extends` in your `tsconfig.json` file. The supported configs are:
 
-You can use `@sapphire/ts-config` base [`tsconfig.json`](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/tsconfig.json) by extending it in yours:
+-   `@sapphire/ts-config/base` -> This is identical to `@sapphire/ts-config`
+-   `@sapphire/ts-config/extra-strict`
+-   `@sapphire/ts-config/decorators`
+-   `@sapphire/ts-config/verbatim`
 
-```json
-{
-	"extends": "@sapphire/ts-config"
-}
-```
+You should always start with the base config, regardless of what other configs you choose.
+Next you can opt-in to the other configs.
 
-This TypeScript config is set up in such a way that it will suite nearly all projects, you may extend this to include your own
-configuration options as well.
+Finally you should configure your package.json properly based on what kind of package you are writing
 
-Following is a copy of this config file for easy viewing:
+-   For CJS packages you should add `"type": "commonjs"` to your `package.json`
+-   For ESM packages you should add `"type": "module"` to your `package.json`
+-   For a package that is going to be used by both CJS and ESM then you should not add any `"type"` to your `package.json`
+    -   Note that if you intend to compile for both your best option is to compile
+        for CJS from TypeScript, then use [`gen-esm-wrapper`](https://github.com/addaleax/gen-esm-wrapper) to transform your
+        input file to ESM compatible exports. This is also what we do for our Sapphire packages.
+    -   Note also that in this case you should not enable `@sapphire/ts-config/verbatim`, because it will not work without
+        a `"type"` specified in `package.json`
 
-```json
-{
-	"compileOnSave": true,
-	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"alwaysStrict": true,
-		"declaration": true,
-		"declarationMap": true,
-		"emitDecoratorMetadata": true,
-		"esModuleInterop": true,
-		"experimentalDecorators": true,
-		"forceConsistentCasingInFileNames": true,
-		"importHelpers": true,
-		"importsNotUsedAsValues": "error",
-		"incremental": true,
-		"lib": ["esnext"],
-		"module": "CommonJS",
-		"moduleResolution": "Node",
-		"newLine": "lf",
-		"noEmitHelpers": true,
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"preserveConstEnums": true,
-		"pretty": true,
-		"removeComments": false,
-		"resolveJsonModule": true,
-		"sourceMap": true,
-		"strict": true,
-		"target": "ES2019",
-		"useDefineForClassFields": true
-	}
-}
-```
+Next we will go over the different configs and what they do.
 
-### Config without decorators
+### Base
 
-You can use `@sapphire/ts-config`'s [`without-decorators.json`](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/extra-strict-without-decorators.json) by extending it in yours:
+The base config (`@sapphire/ts-config`, or `@sapphire/ts-config/base`) is the default config with options set up in
+such a way that it will suite nearly all projects.
 
-```json
-{
-	"extends": "@sapphire/ts-config/without-decorators"
-}
-```
+You can view the content of this tsconfig [here](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/src/tsconfig.json)
 
-This TypeScript extends everything from the base config, but disables decorator support.
+### Extra Strict
 
-Following is a copy of this config file for easy viewing:
+You should include this config if you want to extra strict checking. This configures the following compiler options:
 
-```json
-{
-	"$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/tsconfig.json",
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"emitDecoratorMetadata": false,
-		"experimentalDecorators": false
-	}
-}
-```
+-   [`allowUnreachableCode` to `false`](https://www.typescriptlang.org/tsconfig#allowUnreachableCode)
+-   [`allowUnusedLabels` to `false`](https://www.typescriptlang.org/tsconfig#allowUnusedLabels)
+-   [`exactOptionalPropertyTypes` to `false`](https://www.typescriptlang.org/tsconfig#exactOptionalPropertyTypes)
+-   [`noImplicitOverride` to `true`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
 
-### Config with extra strict compiler options
+You can view the content of this tsconfig [here](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/src/extra-strict.json)
 
-You can use `@sapphire/ts-config`'s [`extra-strict.json`](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/extra-strict.json) by extending it in yours:
+### Decorators
 
-```json
-{
-	"extends": "@sapphire/ts-config/extra-strict"
-}
-```
+You should include this config if you want to use decorators in the project using decorators from before the TC39
+TC39 standardization process. Note that at time of writing (2023-08-24) TC39 decorators aren't fully properly
+implemented by either NodeJS or TypeScript yet, so at least at time of writing we recommend enabling this config if
+you are using decorators. Packages such as `@sapphire/decorators` rely on this config being enabled.
 
-This TypeScript extends everything from the base config, while enabling some extra strict options.
+This enables the following compiler options:
 
-Following is a copy of this config file for easy viewing:
+-   [experimentalDecorators](https://www.typescriptlang.org/tsconfig#experimentalDecorators)
+-   [emitDecoratorMetadata](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata)
 
-```json
-{
-	"$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/tsconfig.json",
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"allowUnreachableCode": false,
-		"allowUnusedLabels": false,
-		"exactOptionalPropertyTypes": false,
-		"noImplicitOverride": true
-	}
-}
-```
+You can view the content of this tsconfig [here](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/src/decorators.json)
 
-### Config with extra strict compiler options and without decorators
+### Verbatim
 
-You can use `@sapphire/ts-config`'s [`extra-strict-without-decorators.json`](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/extra-strict-without-decorators.json) by extending it in yours:
+You should include this config if you want to enable the
+[verbatimModuleSyntax](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) option. This option has some
+drawbacks when writing CJS code but also ensures even more type strictness.
+See the TypeScript documentation for more information.
 
-```json
-{
-	"extends": "@sapphire/ts-config/extra-strict-without-decorators"
-}
-```
+This enables the following compiler options:
 
-This TypeScript is a combination of the [Config without decorators](#config-without-decorators) and [Config with extra strict compiler options](#config-with-extra-strict-compiler-options) config files.
+-   [verbatimModuleSyntax](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax)
 
-Following is a copy of this config file for easy viewing:
+You can view the content of this tsconfig [here](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/src/verbatim.json)
 
-```json
-{
-	"$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/tsconfig.json",
-	"extends": "./extra-strict.json",
-	"compilerOptions": {
-		"emitDecoratorMetadata": false,
-		"experimentalDecorators": false
-	}
-}
-```
+### Bundler
+
+You may include this config if bundle your code with a bundler such as [tsup], [esbuild], [swc] or something else. This
+config sets [`moduleResolution` to `Bundler`][moduleResolution] and [`module` to `ES2022`][module]. This will likely also allow you to enable
+[Verbatim](#verbatim).
+
+This configures the following compiler options:
+
+-   [`moduleResolution` to `Bundler`][moduleResolution]
+-   [`module` to `ES2022`][module]
+
+You can view the content of this tsconfig [here](https://github.com/sapphiredev/utilities/blob/main/packages/ts-config/src/bundler.json)
 
 ## Buy us some doughnuts
 
@@ -188,3 +142,8 @@ Thank you to all the people who already contributed to Sapphire!
 </a>
 
 [contributing]: https://github.com/sapphiredev/.github/blob/main/.github/CONTRIBUTING.md
+[module]: https://www.typescriptlang.org/tsconfig#module
+[moduleResolution]: https://www.typescriptlang.org/tsconfig#moduleResolution
+[tsup]: https://tsup.egoist.dev
+[esbuild]: https://esbuild.github.io
+[swc]: https://swc.rs

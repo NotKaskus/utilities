@@ -2,6 +2,94 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/fetch@3.0.4](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@3.0.3...@sapphire/fetch@3.0.4) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- Move browser imports ([100ffb0](https://github.com/sapphiredev/utilities/commit/100ffb0a2471bb9f74cc580d282d11059e1a0a68)) ([#826](https://github.com/sapphiredev/utilities/pull/826) by @kyranet)
+- **fetch:** Support stringifying arrays ([6752976](https://github.com/sapphiredev/utilities/commit/675297617855882f177766b713c754679550d105)) ([#814](https://github.com/sapphiredev/utilities/pull/814) by @favna)
+
+# [@sapphire/fetch@3.0.3](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@3.0.2...@sapphire/fetch@3.0.3) - (2024-08-16)
+
+## 🐛 Bug Fixes
+
+- **fetch:** Handle non object bodies properly ([479de10](https://github.com/sapphiredev/utilities/commit/479de10880218eb789c1ad47622fbcd9335c019c)) ([#786](https://github.com/sapphiredev/utilities/pull/786) by @favna)
+- **deps:** Update all non-major dependencies ([083376a](https://github.com/sapphiredev/utilities/commit/083376aac55094dbeddb5194e8a8f0d794b8cceb)) ([#763](https://github.com/sapphiredev/utilities/pull/763) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e7fdc5d](https://github.com/sapphiredev/utilities/commit/e7fdc5db3632a7f90292ef3978898da32730343a)) ([#752](https://github.com/sapphiredev/utilities/pull/752) by @renovate[bot])
+
+## 📝 Documentation
+
+- **readme:** Fix readme table of contents ([c60e8bd](https://github.com/sapphiredev/utilities/commit/c60e8bd9fc89156cf973871597ec3f0ef0308c08))
+- **fetch:** Fix tsdoc comments ([41517f3](https://github.com/sapphiredev/utilities/commit/41517f351dbc32f0dc0b47d724e62b4207981349))
+
+# [@sapphire/fetch@3.0.2](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@3.0.2...@sapphire/fetch@3.0.2) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/fetch@3.0.1](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@3.0.1...@sapphire/fetch@3.0.1) - (2023-12-18)
+
+## 🐛 Bug Fixes
+
+- **fetch:** Add additional reference lib comment (#695) ([83400f3](https://github.com/sapphiredev/utilities/commit/83400f3330ae4bb47a8e8174164fb9141eaeeec8))
+
+## 📝 Documentation
+
+- **fetch:** README cleanup (#683) ([147b2d5](https://github.com/sapphiredev/utilities/commit/147b2d543ba26de6875f25e8800b4f02f7f505aa))
+
+# [@sapphire/fetch@3.0.0](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@3.0.0...@sapphire/fetch@3.0.0) - (2023-12-10)
+
+## 🚀 Features
+
+- **fetch:** Drop cross-fetch, always use global fetch ([c716bc2](https://github.com/sapphiredev/utilities/commit/c716bc2fba8f6e217113d9c13e5664753a2433a1))
+  - 💥 **BREAKING CHANGE:** This version and all subsequent versions require
+NodeJS v18 or above, or v16 with the `--experimental-fetch` flag
+
+## 🧪 Testing
+
+- Switch from nock to mfw ([5a5b3ff](https://github.com/sapphiredev/utilities/commit/5a5b3ff466e07edba6122705588ce5762a82ac31))
+
+# [@sapphire/fetch@2.4.2](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@2.4.2...@sapphire/fetch@2.4.2) - (2023-12-04)
+
+## 🏠 Refactor
+
+- Split `@sapphire/time-utilities` into 4 sub-packages (#462) ([574299a](https://github.com/sapphiredev/utilities/commit/574299a99e658f6500a2a7efa587a0919b2d1313))
+
+## 🐛 Bug Fixes
+
+- **fetch:** Properly split CJS, ESM and IIFE ([4c6d808](https://github.com/sapphiredev/utilities/commit/4c6d808ebf89a93153c96919d00d1a36e644097a))
+- Update export mapping for proper ESM/CJS split ([dd0cff8](https://github.com/sapphiredev/utilities/commit/dd0cff8e9b03a15812f25f7a1180501a92422629))
+- **fetch:** Update cross-fetch to v4.0.0 ([e6ff4fc](https://github.com/sapphiredev/utilities/commit/e6ff4fc5ce90d6a21158e39b833e515833f968d0))
+- **deps:** Update all non-major dependencies (#607) ([9cc8bd0](https://github.com/sapphiredev/utilities/commit/9cc8bd0d4b5d650deab2c913e6c3d713861bae28))
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **deps:** Update all non-major dependencies (#544) ([cc78f17](https://github.com/sapphiredev/utilities/commit/cc78f17390c7f3db08af92bf46a5a70a9c11dd5f))
+- **deps:** Update all non-major dependencies (#532) ([8033d1f](https://github.com/sapphiredev/utilities/commit/8033d1ff7a5a1974134c61f424f171cccb2915e1))
+- **deps:** Update all non-major dependencies (#514) ([21b07d5](https://github.com/sapphiredev/utilities/commit/21b07d5db529a0d982647a60de98e46f36f1ac93))
+- **deps:** Update all non-major dependencies (#505) ([6178296](https://github.com/sapphiredev/utilities/commit/617829649e1e4deeee02b14533b5377cd5bc1fb3))
+- **deps:** Update all non-major dependencies (#466) ([dc08606](https://github.com/sapphiredev/utilities/commit/dc08606a97154e47c65536123ac5f8b1262f7bd2))
+- **deps:** Update all non-major dependencies ([e20f299](https://github.com/sapphiredev/utilities/commit/e20f29906e83cee000aaba9c6827e3bec5173d28))
+- **deps:** Update all non-major dependencies ([2308bd7](https://github.com/sapphiredev/utilities/commit/2308bd74356b6b2e0c12995b25f4d8ade4803fe9))
+
+## 📝 Documentation
+
+- Add @06000208 as a contributor ([fa3349e](https://github.com/sapphiredev/utilities/commit/fa3349e55ce4ad008785211dec7bf8e2b5d933df))
+- Add @didinele as a contributor ([42ef7b6](https://github.com/sapphiredev/utilities/commit/42ef7b656c48fd0e720119db1d622c8bba2791e9))
+- Add @goestav as a contributor ([0e56a92](https://github.com/sapphiredev/utilities/commit/0e56a92a4e2d0942bfa207f81a8cb03b32312034))
+- Add @CitTheDev as a contributor ([34169ea](https://github.com/sapphiredev/utilities/commit/34169eae1dc0476ccf5a6c4f36e28602a204829e))
+- Add @legendhimslef as a contributor ([059b6f1](https://github.com/sapphiredev/utilities/commit/059b6f1ab5362d46d58624d06c1aa39192b0716f))
+- Add @r-priyam as a contributor ([fb278ba](https://github.com/sapphiredev/utilities/commit/fb278bacf627ec6fc88752eafeb12df5f3177a2c))
+- Change name of @kyranet (#451) ([df4fdef](https://github.com/sapphiredev/utilities/commit/df4fdefce18659975a4ebc224723638507d02d35))
+- Update @RealShadowNova as a contributor ([a869ba0](https://github.com/sapphiredev/utilities/commit/a869ba0abfad041610b9115187d426aebe671af6))
+- Add @muchnameless as a contributor ([a1221fe](https://github.com/sapphiredev/utilities/commit/a1221fea68506e99591d5d00ec552a07c26833f9))
+- Add @enxg as a contributor ([d2382f0](https://github.com/sapphiredev/utilities/commit/d2382f04e3909cb4ad11798a0a10e683f6cf5383))
+- Add @EvolutionX-10 as a contributor ([efc3a32](https://github.com/sapphiredev/utilities/commit/efc3a320a72ae258996dd62866d206c33f8d4961))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
 # [@sapphire/fetch@2.4.1](https://github.com/sapphiredev/utilities/compare/@sapphire/fetch@2.4.0...@sapphire/fetch@2.4.1) - (2022-07-13)
 
 ## 🏠 Refactor

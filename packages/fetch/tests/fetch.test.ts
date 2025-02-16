@@ -1,39 +1,33 @@
-import nock from 'nock';
+import { HttpResponse, http } from 'msw';
+import { setupServer } from 'msw/node';
 import { URL as NodeUrl } from 'node:url';
-import { fetch, FetchResultTypes, QueryError, FetchMediaContentTypes } from '../dist';
+import { FetchMediaContentTypes, FetchMethods, FetchResultTypes, QueryError, fetch } from '../src/index.js';
 
 describe('fetch', () => {
-	let nockScopeHttp: nock.Scope;
-	let nockScopeHttps: nock.Scope;
+	const server = setupServer(
+		http.get('http://localhost/simpleget', () => HttpResponse.json({ test: true }, { status: 200 })),
+		http.post('http://localhost/simplepost', async ({ request }) => {
+			const body = await request.json();
+			if (body && typeof body === 'object' && body.sapphire === 'isAwesome') {
+				return HttpResponse.json({ test: true }, { status: 200 });
+			}
 
-	beforeAll(() => {
-		nockScopeHttp = nock('http://localhost')
-			.persist()
-			.get('/simpleget')
-			.times(Infinity)
-			.reply(200, { test: true })
-			.post('/simplepost', { sapphire: 'isAwesome' })
-			.times(Infinity)
-			.reply(200, { test: true })
-			.get('/404')
-			.times(Infinity)
-			.reply(404, { success: false });
+			return HttpResponse.json({ test: false }, { status: 400 });
+		}),
+		http.get('http://localhost/404', () => HttpResponse.json({ success: false }, { status: 404 })),
+		http.post('http://localhost/upload', async ({ request }) => {
+			try {
+				await request.json();
+				return HttpResponse.json({ message: 'Successfully parsed body as JSON, this is unexpected!!' }, { status: 200 });
+			} catch (error) {
+				return HttpResponse.json({ message: 'Failed to parse body as JSON, this is expected!!' }, { status: 200 });
+			}
+		})
+	);
 
-		nockScopeHttps = nock('https://localhost') //
-			.persist()
-			.get('/simpleget')
-			.times(Infinity)
-			.reply(200, { test: true })
-			.post('/simplepost', { sapphire: 'isAwesome' })
-			.times(Infinity)
-			.reply(200, { test: true });
-	});
-
-	afterAll(() => {
-		nockScopeHttp.persist(false);
-		nockScopeHttps.persist(false);
-		nock.restore();
-	});
+	beforeAll(() => server.listen());
+	afterEach(() => server.resetHandlers());
+	afterAll(() => server.close());
 
 	describe('Successful fetches', () => {
 		test('GIVEN fetch w/ JSON response THEN returns JSON', async () => {
@@ -106,20 +100,42 @@ describe('fetch', () => {
 			expect(response).toStrictEqual(JSON.stringify({ test: true }));
 		});
 
-		test('GIVEN fetch w/ relative path THEN returns result', async () => {
-			const response = await fetch('//localhost/simpleget', FetchResultTypes.Text);
-
-			expect(response).toStrictEqual(JSON.stringify({ test: true }));
-		});
-
 		test('GIVEN fetch w/ object body w/ JSON response THEN returns JSON', async () => {
 			const response = await fetch<{ test: boolean }>(
 				'http://localhost/simplepost',
-				{ method: 'POST', body: { sapphire: 'isAwesome' } },
+				{ method: FetchMethods.Post, body: { sapphire: 'isAwesome' } },
 				FetchResultTypes.JSON
 			);
 
 			expect(response.test).toBe(true);
+		});
+
+		test('GIVEN fetch w/ Blob body THEN returns successfully', async () => {
+			const response = await fetch<{ message: string }>(
+				'http://localhost/upload',
+				{
+					method: FetchMethods.Post,
+					body: new Blob(['De Blob'], {
+						type: FetchMediaContentTypes.TextPlain
+					})
+				},
+				FetchResultTypes.JSON
+			);
+
+			expect(response.message).toBe('Failed to parse body as JSON, this is expected!!');
+		});
+
+		test('GIVEN fetch w/ buffer body THEN returns successfully', async () => {
+			const response = await fetch<{ message: string }>(
+				'http://localhost/upload',
+				{
+					method: FetchMethods.Post,
+					body: Buffer.alloc(1)
+				},
+				FetchResultTypes.JSON
+			);
+
+			expect(response.message).toBe('Failed to parse body as JSON, this is expected!!');
 		});
 	});
 

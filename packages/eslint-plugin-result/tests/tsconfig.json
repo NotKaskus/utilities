@@ -1,0 +1,10 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"incremental": false,
+		"verbatimModuleSyntax": false,
+		"types": ["vitest/globals"]
+	},
+	"include": ["./"]
+}

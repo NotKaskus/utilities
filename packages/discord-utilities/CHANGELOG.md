@@ -2,6 +2,131 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/discord-utilities@3.4.4](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.4.3...@sapphire/discord-utilities@3.4.4) - (2025-01-05)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Bump discord-api-types to `^0.37.114` to match discord.js ([7acb7cf](https://github.com/sapphiredev/utilities/commit/7acb7cfe06316bc60c7517dfd5324f34a36a37f9))
+
+# [@sapphire/discord-utilities@3.4.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.4.1...@sapphire/discord-utilities@3.4.2) - (2024-11-02)
+
+## 🏠 Refactor
+
+- Resolve several sonar issues ([ba915f9](https://github.com/sapphiredev/utilities/commit/ba915f93ce0907828ba17b2d5ae009631ceb860d)) ([#823](https://github.com/sapphiredev/utilities/pull/823) by @favna)
+
+## 🐛 Bug Fixes
+
+- Sync discord-api-types to discordjs ([78b9303](https://github.com/sapphiredev/utilities/commit/78b93032a4de14453b0c8717619fa1ef82f6a763))
+- Move browser imports ([100ffb0](https://github.com/sapphiredev/utilities/commit/100ffb0a2471bb9f74cc580d282d11059e1a0a68)) ([#826](https://github.com/sapphiredev/utilities/pull/826) by @kyranet)
+- Update for latest discord.js ([86dab68](https://github.com/sapphiredev/utilities/commit/86dab688e6d56f72b65848028ebb31b90ed8acc0)) ([#799](https://github.com/sapphiredev/utilities/pull/799) by @favna)
+
+# [@sapphire/discord-utilities@3.4.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.4.0...@sapphire/discord-utilities@3.4.1) - (2024-09-05)
+
+## 🏠 Refactor
+
+- **discord-utilities:** Switch to jdecked twemoji fork ([855b323](https://github.com/sapphiredev/utilities/commit/855b323fc8b4c6afb76578758518c53de01c61a8)) ([#797](https://github.com/sapphiredev/utilities/pull/797) by @SerenModz21)
+
+# [@sapphire/discord-utilities@3.4.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.3.0...@sapphire/discord-utilities@3.4.0) - (2024-08-30)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([083376a](https://github.com/sapphiredev/utilities/commit/083376aac55094dbeddb5194e8a8f0d794b8cceb)) ([#763](https://github.com/sapphiredev/utilities/pull/763) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e7fdc5d](https://github.com/sapphiredev/utilities/commit/e7fdc5db3632a7f90292ef3978898da32730343a)) ([#752](https://github.com/sapphiredev/utilities/pull/752) by @renovate[bot])
+
+## 🚀 Features
+
+- Clonable TwemojiRegex ([f3243e6](https://github.com/sapphiredev/utilities/commit/f3243e677c1581efd3b4bb39144503af973edf46)) ([#794](https://github.com/sapphiredev/utilities/pull/794) by @vladfrangu)
+
+# [@sapphire/discord-utilities@3.3.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.2.3...@sapphire/discord-utilities@3.3.0) - (2024-05-22)
+
+## 🚀 Features
+
+- Add emojis & stickers limits per (premium) guild (#751) ([4424cfd](https://github.com/sapphiredev/utilities/commit/4424cfd7fd95a3b7f16e22f38328559637e65642))
+
+# [@sapphire/discord-utilities@3.2.3](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.2.2...@sapphire/discord-utilities@3.2.3) - (2024-03-11)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Bump discord-api-types ([a9b3ea8](https://github.com/sapphiredev/utilities/commit/a9b3ea81303c1333a6cecf4ee41bf011a07ec425))
+
+# [@sapphire/discord-utilities@3.2.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.2.2...@sapphire/discord-utilities@3.2.2) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/discord-utilities@3.2.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.2.1...@sapphire/discord-utilities@3.2.1) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Properly split CJS, ESM and IIFE ([e8cf041](https://github.com/sapphiredev/utilities/commit/e8cf04139a2665474a86dba445bec448752c4b93))
+
+# [@sapphire/discord-utilities@3.2.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.2.0...@sapphire/discord-utilities@3.2.0) - (2023-11-15)
+
+## 🐛 Bug Fixes
+
+- Update export mapping for proper ESM/CJS split ([dd0cff8](https://github.com/sapphiredev/utilities/commit/dd0cff8e9b03a15812f25f7a1180501a92422629))
+
+## 📝 Documentation
+
+- **utilities:** Use updated name in `@link` for `HttpUrlRegex` (#661) ([d8b3b84](https://github.com/sapphiredev/utilities/commit/d8b3b84b96f10031466955e5c272337fa95e6933))
+
+## 🚀 Features
+
+- **utilities:** Add maximum nitro basic upload size (#660) ([3bc31a5](https://github.com/sapphiredev/utilities/commit/3bc31a5507869726771ba5bad42453a9cb041412))
+
+# [@sapphire/discord-utilities@3.1.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.1.0...@sapphire/discord-utilities@3.1.1) - (2023-08-29)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Update discord-api-types ([07bdda4](https://github.com/sapphiredev/utilities/commit/07bdda44ec1c93ee060f7be9409e5812306cd1a5))
+
+# [@sapphire/discord-utilities@3.1.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.0.4...@sapphire/discord-utilities@3.1.0) - (2023-08-07)
+
+## 🚀 Features
+
+- **limits:** Add more limits (#630) ([3a9f6d2](https://github.com/sapphiredev/utilities/commit/3a9f6d200dbbfe0b690b1a7cc065187ff1eaf1b7))
+
+# [@sapphire/discord-utilities@3.0.4](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.0.3...@sapphire/discord-utilities@3.0.4) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Bump discord-api-types to v0.37.50 ([dd3e1fb](https://github.com/sapphiredev/utilities/commit/dd3e1fb69e93d4809c2cddad464a71d411ad6867))
+- **discord-utilities:** Update to discord-api-types to v0.37.49 ([1bd861b](https://github.com/sapphiredev/utilities/commit/1bd861b7535f8fecbb9b2e36efa85ec0b78a6754))
+- **deps:** Update all non-major dependencies ([3c9d07e](https://github.com/sapphiredev/utilities/commit/3c9d07e34217c2494f160d84cd177fba6ced4ac3))
+- **deps:** Update all non-major dependencies (#607) ([9cc8bd0](https://github.com/sapphiredev/utilities/commit/9cc8bd0d4b5d650deab2c913e6c3d713861bae28))
+- **discord-utilities:** Bump discord-api-types ([9cd3af3](https://github.com/sapphiredev/utilities/commit/9cd3af355bfe6640d6b2a57daf0585de1c6e6742))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/discord-utilities@3.0.3](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.0.2...@sapphire/discord-utilities@3.0.3) - (2023-05-02)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Update dev dep ([48988d6](https://github.com/sapphiredev/utilities/commit/48988d65bfdeec76515268f23b381b99ea9e5525))
+- **discord-utilities:** Update discord-api-types dependency ([db67971](https://github.com/sapphiredev/utilities/commit/db6797186c10e9cf32d270c5bb89a6091289a110))
+
+# [@sapphire/discord-utilities@3.0.2](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.0.1...@sapphire/discord-utilities@3.0.2) - (2023-04-12)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Bump discord-api-types ([e3be7e4](https://github.com/sapphiredev/utilities/commit/e3be7e4b14ce4c1d9594246fe05a6106de02f99b))
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+
+## 🧪 Testing
+
+- Cleanup tests ([aec1bb2](https://github.com/sapphiredev/utilities/commit/aec1bb290d0f3c00a1ae4f4c86302ebbb161d348))
+
+# [@sapphire/discord-utilities@3.0.1](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@3.0.0...@sapphire/discord-utilities@3.0.1) - (2023-03-14)
+
+## 🐛 Bug Fixes
+
+- **discord-utilities:** Bump discord-api-types ([4916689](https://github.com/sapphiredev/utilities/commit/491668976c0d6bf6ca1fd1aa08e791a738873b38))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **deps:** Update all non-major dependencies (#544) ([cc78f17](https://github.com/sapphiredev/utilities/commit/cc78f17390c7f3db08af92bf46a5a70a9c11dd5f))
+
 # [@sapphire/discord-utilities@3.0.0](https://github.com/sapphiredev/utilities/compare/@sapphire/discord-utilities@2.12.0...@sapphire/discord-utilities@3.0.0) - (2023-01-08)
 
 ## 🐛 Bug Fixes

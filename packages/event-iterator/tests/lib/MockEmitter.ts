@@ -1,5 +1,5 @@
 import { EventEmitter } from 'node:events';
-import { EventIterator, EventIteratorOptions } from '../../src';
+import { EventIterator, type EventIteratorOptions } from '../../src';
 import { Person } from './Person';
 
 export class PeopleIterator extends EventIterator<[Person]> {}
@@ -7,7 +7,7 @@ export class PeopleIterator extends EventIterator<[Person]> {}
 export const people = [new Person('Anna'), new Person('Bob'), new Person('Joe')];
 
 export class PeopleEmitter extends EventEmitter {
-	#people = people;
+	readonly #people = people;
 
 	#emitted = 0;
 

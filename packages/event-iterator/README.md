@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/event-iterator
 
 **Turns event emitter events into async iterators.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/event-iterator?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/event-iterator)
 [![npm](https://img.shields.io/npm/v/@sapphire/event-iterator?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/event-iterator)
 
@@ -21,7 +20,7 @@
 -   [Usage](#usage)
     -   [Basic Usage](#basic-usage)
 -   [Buy us some doughnuts](#buy-us-some-doughnuts)
--   [Contributors ✨](#contributors-%E2%9C%A8)
+-   [Contributors](#contributors)
 
 ## Description
 

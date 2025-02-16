@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/stopwatch
 
 **Accurately measure passing time**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/stopwatch?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/stopwatch)
 [![npm](https://img.shields.io/npm/v/@sapphire/stopwatch?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/stopwatch)
 
@@ -15,14 +14,13 @@
 
 **Table of Contents**
 
--   [@sapphire/stopwatch](#sapphirestopwatch)
-    -   [Description](#description)
-    -   [Features](#features)
-    -   [Installation](#installation)
-    -   [Usage](#usage)
-        -   [Basic Usage](#basic-usage)
-    -   [Buy us some doughnuts](#buy-us-some-doughnuts)
-    -   [Contributors ✨](#contributors-)
+-   [Description](#description)
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+    -   [Basic Usage](#basic-usage)
+-   [Buy us some doughnuts](#buy-us-some-doughnuts)
+-   [Contributors](#contributors)
 
 ## Description
 

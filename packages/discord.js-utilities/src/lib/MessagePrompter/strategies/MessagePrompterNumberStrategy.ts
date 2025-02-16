@@ -1,6 +1,6 @@
 import type { CollectorFilter, EmojiIdentifierResolvable, MessageReaction, User } from 'discord.js';
-import type { MessagePrompterChannelTypes, MessagePrompterMessage } from '../constants';
 import type { IMessagePrompterExplicitNumberReturn } from '../ExplicitReturnTypes';
+import type { MessagePrompterChannelTypes, MessagePrompterMessage } from '../constants';
 import type { IMessagePrompterNumberStrategyOptions } from '../strategyOptions';
 import { MessagePrompterBaseStrategy } from './MessagePrompterBaseStrategy';
 
@@ -20,7 +20,7 @@ export class MessagePrompterNumberStrategy extends MessagePrompterBaseStrategy i
 
 	/**
 	 * Constructor for the {@link MessagePrompterBaseStrategy} class
-	 * @param messagePrompter The used instance of {@link MessagePrompter}
+	 * @param message The message instance for this {@link MessagePrompter}
 	 * @param options Overrideable options if needed.
 	 */
 	public constructor(message: MessagePrompterMessage, options: IMessagePrompterNumberStrategyOptions) {
@@ -35,7 +35,7 @@ export class MessagePrompterNumberStrategy extends MessagePrompterBaseStrategy i
 	 * This executes the {@link MessagePrompter} and sends the message if {@link IMessagePrompterOptions.type} equals number.
 	 * The handler will wait for one (1) reaction.
 	 * @param channel The channel to use.
-	 * @param authorOrFilter An author object to validate or a {@linkplain https://discord.js.org/#/docs/main/stable/typedef/CollectorFilter CollectorFilter} predicate callback.
+	 * @param authorOrFilter An author object to validate or a {@linkplain https://discord.js.org/docs/packages/discord.js/main/CollectorFilter:TypeAlias CollectorFilter} predicate callback.
 	 * @returns A promise that resolves to the selected number within the range.
 	 */
 	public async run(

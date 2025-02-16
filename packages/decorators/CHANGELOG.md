@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/decorators@6.1.1](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@6.1.0...@sapphire/decorators@6.1.1) - (2024-11-02)
+
+## 🏠 Refactor
+
+- Resolve several sonar issues ([ba915f9](https://github.com/sapphiredev/utilities/commit/ba915f93ce0907828ba17b2d5ae009631ceb860d)) ([#823](https://github.com/sapphiredev/utilities/pull/823) by @favna)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([083376a](https://github.com/sapphiredev/utilities/commit/083376aac55094dbeddb5194e8a8f0d794b8cceb)) ([#763](https://github.com/sapphiredev/utilities/pull/763) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e7fdc5d](https://github.com/sapphiredev/utilities/commit/e7fdc5db3632a7f90292ef3978898da32730343a)) ([#752](https://github.com/sapphiredev/utilities/pull/752) by @renovate[bot])
+
+## 📝 Documentation
+
+- **decorator:** Fix tsdoc comments ([97dd5ac](https://github.com/sapphiredev/utilities/commit/97dd5ac6fdaedbcbf56e99fa566b09133b745b75))
+
+# [@sapphire/decorators@6.1.0](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@6.0.4...@sapphire/decorators@6.1.0) - (2024-03-17)
+
+## 🚀 Features
+
+- Add-interaction-support-to-decorators (#725) ([c166ac6](https://github.com/sapphiredev/utilities/commit/c166ac6e8c2ae4c8057a84e08e7f6b4339f5a0f6))
+
+# [@sapphire/decorators@6.0.4](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@6.0.4...@sapphire/decorators@6.0.4) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/decorators@6.0.3](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@6.0.3...@sapphire/decorators@6.0.3) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **decorators:** Properly split CJS and ESM ([2326c11](https://github.com/sapphiredev/utilities/commit/2326c116cb31ffd7f3c93b25af85ae33e381df35))
+- Update export mapping for proper ESM/CJS split ([dd0cff8](https://github.com/sapphiredev/utilities/commit/dd0cff8e9b03a15812f25f7a1180501a92422629))
+
+# [@sapphire/decorators@6.0.2](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@6.0.1...@sapphire/decorators@6.0.2) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#607) ([9cc8bd0](https://github.com/sapphiredev/utilities/commit/9cc8bd0d4b5d650deab2c913e6c3d713861bae28))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/decorators@6.0.1](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@6.0.0...@sapphire/decorators@6.0.1) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **decorators:** Add missing type modifiers ([2f49bbb](https://github.com/sapphiredev/utilities/commit/2f49bbbd17f97653ba221025b81efc8271830100))
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **deps:** Update all non-major dependencies (#544) ([cc78f17](https://github.com/sapphiredev/utilities/commit/cc78f17390c7f3db08af92bf46a5a70a9c11dd5f))
+
+## 🧪 Testing
+
+- Cleanup tests ([aec1bb2](https://github.com/sapphiredev/utilities/commit/aec1bb290d0f3c00a1ae4f4c86302ebbb161d348))
+
 # [@sapphire/decorators@6.0.0](https://github.com/sapphiredev/utilities/compare/@sapphire/decorators@5.0.0...@sapphire/decorators@6.0.0) - (2023-01-08)
 
 ## 🚀 Features

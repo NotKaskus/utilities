@@ -2,6 +2,132 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/eslint-config@5.0.5](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@5.0.4...@sapphire/eslint-config@5.0.5) - (2024-06-03)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Bump transient dependencies ([f83936d](https://github.com/sapphiredev/utilities/commit/f83936db505bdcda957f5c52bdde557dbb1410b9))
+- **deps:** Update all non-major dependencies ([7dc491a](https://github.com/sapphiredev/utilities/commit/7dc491a3eebea3bd320fcc73d3b434067646c7df))
+
+## 📝 Documentation
+
+- **eslint-config:** Add note on how to use with flat config ([875402c](https://github.com/sapphiredev/utilities/commit/875402c3d1a3611a89ba3680d107b1c8d2be20dd))
+
+# [@sapphire/eslint-config@5.0.4](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@5.0.3...@sapphire/eslint-config@5.0.4) - (2024-03-11)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Bump transitive dependencies ([f2600b3](https://github.com/sapphiredev/utilities/commit/f2600b34bb8dbe3c55a245a4d8c260493adfa83a))
+- **deps:** Update typescript-eslint monorepo to v7 (major) (#717) ([f929edc](https://github.com/sapphiredev/utilities/commit/f929edc5c951428a3e72e6f37725f27c4b383c54))
+- Update transitive dependencies ([4c28962](https://github.com/sapphiredev/utilities/commit/4c2896269f4204ed8e48b91581232c28a6d53f20))
+- **deps:** Update dependency prettier to ^3.2.2 ([61630cc](https://github.com/sapphiredev/utilities/commit/61630cc5aa43e05d6e3e8881b2883f0ef334f02a))
+- **eslint-config:** Bump transitive dependencies ([632805d](https://github.com/sapphiredev/utilities/commit/632805d334e47aa10df6005cc4d01155046dc26f))
+- **deps:** Update dependency eslint-plugin-prettier to ^5.1.2 ([e1c7c75](https://github.com/sapphiredev/utilities/commit/e1c7c7533acaba45d95e86984a64f1db39f0e2af))
+- **deps:** Update all non-major dependencies ([fef82a8](https://github.com/sapphiredev/utilities/commit/fef82a89eda7af96bd6fb49fce00d82608d4b62c))
+- **deps:** Update all non-major dependencies (#681) ([a593be0](https://github.com/sapphiredev/utilities/commit/a593be07bc7a5ec4b9690a83bc6fbf223e012729))
+- Bump transitive prettier dependency ([13ec7e9](https://github.com/sapphiredev/utilities/commit/13ec7e95001ebaaea3267ef22dfdededab912528))
+
+# [@sapphire/eslint-config@5.0.3](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@5.0.3...@sapphire/eslint-config@5.0.3) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Properly split CJS and ESM ([ccc6514](https://github.com/sapphiredev/utilities/commit/ccc6514db0d4f3dbd531a81419591533eac41271))
+- **eslint-config:** Update transitive dependencies ([8656062](https://github.com/sapphiredev/utilities/commit/86560622a4f1eea3bc075faf552883851c4e8b11))
+
+# [@sapphire/eslint-config@5.0.2](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@5.0.1...@sapphire/eslint-config@5.0.2) - (2023-08-29)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Update transitive dependencies ([de7b294](https://github.com/sapphiredev/utilities/commit/de7b294df5cceac794ec03647755653578226f5f))
+- **eslint-config:** Update transitive dependencies ([a81f6de](https://github.com/sapphiredev/utilities/commit/a81f6defaa4d537499065211eaf15940ff039bc9))
+
+# [@sapphire/eslint-config@5.0.1](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@5.0.0...@sapphire/eslint-config@5.0.1) - (2023-08-07)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Update eslint-config-prettier to v9 ([4d7b394](https://github.com/sapphiredev/utilities/commit/4d7b394b4ca77aba491dd5866b1b343f382224e3))
+
+# [@sapphire/eslint-config@5.0.0](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@4.4.3...@sapphire/eslint-config@5.0.0) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([3c9d07e](https://github.com/sapphiredev/utilities/commit/3c9d07e34217c2494f160d84cd177fba6ced4ac3))
+
+## 🚀 Features
+
+- **eslint-config:** Update to `@typescript-eslint` v6 ([e029a2b](https://github.com/sapphiredev/utilities/commit/e029a2bc83d121d517b42815b6dfbd6ff893b6a6))
+  - 💥 **BREAKING CHANGE:** This package now depends on `@typescript-eslint v6`
+  - 💥 **BREAKING CHANGE:** As per above the rule `@typescript-eslint/no-duplicate-imports` has been removed. The replacement is [`import/no-duplicates`](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-duplicates.md) from [`eslint-plugin-import`](https://github.com/import-js/eslint-plugin-import)
+
+# [@sapphire/eslint-config@4.4.3](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@4.4.2...@sapphire/eslint-config@4.4.3) - (2023-07-05)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Update transitive dependencies ([f8c6e68](https://github.com/sapphiredev/utilities/commit/f8c6e680ccc282c52d2d0e0b20ec51201becbbf0))
+- **deps:** Update all non-major dependencies (#607) ([9cc8bd0](https://github.com/sapphiredev/utilities/commit/9cc8bd0d4b5d650deab2c913e6c3d713861bae28))
+- **eslint-config:** Update dependencies ([7c249e5](https://github.com/sapphiredev/utilities/commit/7c249e564a60ca119aebad811773373a8b1c7e46))
+- **eslint-config:** Remove the unnecessary `.mjs` extension from `extraFileExtensions` (#605) ([0d9bbd4](https://github.com/sapphiredev/utilities/commit/0d9bbd46cb865d90a9fe1fd4f817185274804159))
+- **eslint-config:** Update transitive dependencies ([a4246c4](https://github.com/sapphiredev/utilities/commit/a4246c45438d5066ba5f8a9a79c39b43cbf6a5dc))
+- **eslint-config:** Bump typescript-eslint ([45b2934](https://github.com/sapphiredev/utilities/commit/45b29341af6b2391171de4e21ca5e359b56c17fe))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/eslint-config@4.4.2](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@4.4.1...@sapphire/eslint-config@4.4.2) - (2023-05-02)
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Update dependencies ([9e508a9](https://github.com/sapphiredev/utilities/commit/9e508a90ca39874af15e875fcccfc3817c679599))
+
+# [@sapphire/eslint-config@4.4.1](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@4.4.0...@sapphire/eslint-config@4.4.1) - (2023-04-12)
+
+## 🏃 Performance
+
+- **chunk:** Remove clone (#574) ([049047b](https://github.com/sapphiredev/utilities/commit/049047b3ceee6fcfeb2e09e15e26424022a5045c))
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Bump eslint dependencies ([65aa3ae](https://github.com/sapphiredev/utilities/commit/65aa3ae7c0a165af3e613ce058b23293364244f5))
+
+# [@sapphire/eslint-config@4.4.0](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@4.3.8...@sapphire/eslint-config@4.4.0) - (2023-04-10)
+
+## 🏠 Refactor
+
+- Split `@sapphire/time-utilities` into 4 sub-packages (#462) ([574299a](https://github.com/sapphiredev/utilities/commit/574299a99e658f6500a2a7efa587a0919b2d1313))
+
+## 🐛 Bug Fixes
+
+- **eslint-config:** Update typescript to 5.0.3 and eslint to 8.37.0 ([619b8e5](https://github.com/sapphiredev/utilities/commit/619b8e5f965f9a43113cddef6303b65ce86ccfae))
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+- **eslint-config:** Bump dependencies ([8e25c99](https://github.com/sapphiredev/utilities/commit/8e25c99ab5d9c4e18831e000ab8101a079815f3b))
+- **eslint-config:** Bump dependencies ([71de6b0](https://github.com/sapphiredev/utilities/commit/71de6b047ee15daf529aadd4462527218494004f))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **deps:** Update all non-major dependencies (#544) ([cc78f17](https://github.com/sapphiredev/utilities/commit/cc78f17390c7f3db08af92bf46a5a70a9c11dd5f))
+- **deps:** Update all non-major dependencies (#532) ([8033d1f](https://github.com/sapphiredev/utilities/commit/8033d1ff7a5a1974134c61f424f171cccb2915e1))
+- **deps:** Update all non-major dependencies (#514) ([21b07d5](https://github.com/sapphiredev/utilities/commit/21b07d5db529a0d982647a60de98e46f36f1ac93))
+- **deps:** Update all non-major dependencies (#505) ([6178296](https://github.com/sapphiredev/utilities/commit/617829649e1e4deeee02b14533b5377cd5bc1fb3))
+- **eslint-config:** Update dependencies ([dfe32a0](https://github.com/sapphiredev/utilities/commit/dfe32a0dc10c27d362b4bddd910ee481b8cbd352))
+- **deps:** Update all non-major dependencies (#466) ([dc08606](https://github.com/sapphiredev/utilities/commit/dc08606a97154e47c65536123ac5f8b1262f7bd2))
+- **deps:** Update all non-major dependencies ([e20f299](https://github.com/sapphiredev/utilities/commit/e20f29906e83cee000aaba9c6827e3bec5173d28))
+- **deps:** Update all non-major dependencies to ^5.36.1 (#438) ([58dc66a](https://github.com/sapphiredev/utilities/commit/58dc66a50323ac943631f12e95c6feca82b1107f))
+- Update eslint dependencies ([2bd8ad6](https://github.com/sapphiredev/utilities/commit/2bd8ad630a359d8f77013f227fdfa80b53575c18))
+
+## 📝 Documentation
+
+- Add @06000208 as a contributor ([fa3349e](https://github.com/sapphiredev/utilities/commit/fa3349e55ce4ad008785211dec7bf8e2b5d933df))
+- Add @didinele as a contributor ([42ef7b6](https://github.com/sapphiredev/utilities/commit/42ef7b656c48fd0e720119db1d622c8bba2791e9))
+- Add @goestav as a contributor ([0e56a92](https://github.com/sapphiredev/utilities/commit/0e56a92a4e2d0942bfa207f81a8cb03b32312034))
+- Add @CitTheDev as a contributor ([34169ea](https://github.com/sapphiredev/utilities/commit/34169eae1dc0476ccf5a6c4f36e28602a204829e))
+- Add @legendhimslef as a contributor ([059b6f1](https://github.com/sapphiredev/utilities/commit/059b6f1ab5362d46d58624d06c1aa39192b0716f))
+- Add @r-priyam as a contributor ([fb278ba](https://github.com/sapphiredev/utilities/commit/fb278bacf627ec6fc88752eafeb12df5f3177a2c))
+- Change name of @kyranet (#451) ([df4fdef](https://github.com/sapphiredev/utilities/commit/df4fdefce18659975a4ebc224723638507d02d35))
+- Update @RealShadowNova as a contributor ([a869ba0](https://github.com/sapphiredev/utilities/commit/a869ba0abfad041610b9115187d426aebe671af6))
+
+## 🚀 Features
+
+- **duration:** Add units on Duration (#561) ([eac39af](https://github.com/sapphiredev/utilities/commit/eac39af4c43c4f600234fbacb5efe8fb0cbb53b8))
+
 # [@sapphire/eslint-config@4.3.8](https://github.com/sapphiredev/utilities/compare/@sapphire/eslint-config@4.3.7...@sapphire/eslint-config@4.3.8) - (2022-08-20)
 
 ## 🐛 Bug Fixes

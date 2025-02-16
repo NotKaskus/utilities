@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/bitfield
 
 **BitField utilities for JavaScript.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/bitfield?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/bitfield)
 [![npm](https://img.shields.io/npm/v/@sapphire/bitfield?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/bitfield)
 
@@ -27,7 +26,7 @@
     -   [Getting the symmetric difference between different fields](#getting-the-symmetric-difference-between-different-fields)
     -   [Formatting a field](#formatting-a-field)
 -   [Buy us some doughnuts](#buy-us-some-doughnuts)
--   [Contributors ✨](#contributors-)
+-   [Contributors](#contributors)
 
 ## Features
 
@@ -68,6 +67,15 @@ const DetailedPermissionsFlags = {
 	// ...
 };
 const DetailedPermissionsBitField = new BitField(DetailedPermissionsFlags);
+```
+
+> **Warning**: If the source is a TypeScript enum of numbers, you may use the `enumToObject` utility to turn it into a strict typed 1-way object.
+
+```typescript
+const { BitField, enumToObject } = require('@sapphire/bitfield');
+const { ActivityFlags } = require('discord-api-types/v10');
+
+const PermissionsBitField = new BitField(enumToObject(ActivityFlags));
 ```
 
 > **Note**: An exception will be thrown in the constructor if a non-object, null, empty object, or objects with values that aren't all numbers or all bigints.

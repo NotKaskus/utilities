@@ -1,13 +1,12 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+![Sapphire Logo](https://raw.githubusercontent.com/sapphiredev/assets/main/banners/SapphireCommunity.png)
 
 # @sapphire/utilities
 
 **Common JavaScript utilities for the Sapphire Community.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/utilities)](https://github.com/sapphiredev/utilities/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/utilities/branch/main/graph/badge.svg?token=OEGIV6RFDO)](https://codecov.io/gh/sapphiredev/utilities)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/utilities?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/utilities)
 [![npm](https://img.shields.io/npm/v/@sapphire/utilities?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/utilities)
 
@@ -19,8 +18,8 @@
 -   [Features](#features)
 -   [Installation](#installation)
 -   [Usage](#usage)
-    -   [Javascript Utilities](javascript-utilities)
-        -   [`arrayStrictEqual`](#arraystrictequal)
+    -   [Javascript Utilities](#javascript-utilities)
+        -   [`arrayStrictEquals`](#arraystrictequals)
         -   [`chunk`](#chunk)
         -   [`classExtends`](#classextends)
         -   [`codeBlock`](#codeblock)
@@ -42,18 +41,18 @@
         -   [`isPrimitive`](#isprimitive)
         -   [`isThenable`](#isthenable)
         -   [`lazy`](#lazy)
-        -   [`makeObject`](#makeObject)
+        -   [`makeObject`](#makeobject)
         -   [`mergeDefault`](#mergedefault)
         -   [`mergeObjects`](#mergeobjects)
         -   [`noop`](#noop)
         -   [`objectToTuples`](#objecttotuples)
         -   [`partition`](#partition)
-        -   [`pickRandom`](#pickRandom)
+        -   [`pickRandom`](#pickrandom)
         -   [`range`](#range)
-        -   [`regExpEsc`](#regexesc)
+        -   [`regExpEsc`](#regexpesc)
         -   [`roundNumber`](#roundnumber)
-        -   [`sleep`](#sleep)
-        -   [`splitText`](#splitText)
+        -   [`sleep` / `sleepSync`](#sleep--sleepsync)
+        -   [`splitText`](#splittext)
         -   [`throttle`](#throttle)
         -   [`toTitleCase`](#totitlecase)
         -   [`tryParseJSON`](#tryparsejson)
@@ -67,10 +66,10 @@
         -   [Types](#types)
             -   [`Primitive`](#primitive)
             -   [`Builtin`](#builtin)
+            -   [`DeepReadonly`](#deepreadonly)
             -   [`DeepRequired`](#deeprequired)
             -   [`RequiredExcept`](#requiredexcept)
             -   [`PartialRequired`](#partialrequired)
-            -   [`DeepPartial`](#deeppartial)
             -   [`ArgumentTypes`](#argumenttypes)
             -   [`Arr`](#arr)
             -   [`Ctor`](#ctor)
@@ -82,14 +81,15 @@
             -   [`Awaitable`](#awaitable)
             -   [`Nullish`](#nullish)
             -   [`NonNullableProperties`](#nonnullableproperties)
-            -   [`NonNullObject`](#nonnullobject)
-            -   [`AnyObject`](#anyobject)
+            -   [`NonNullObject`](#nonnullobject-deprecated)
+            -   [`AnyObject`](#anyobject-deprecated)
+            -   [`PrettifyObject`](#prettifyobject)
             -   [`PickByValue`](#pickbyvalue)
             -   [`Mutable`](#mutable)
             -   [`StrictRequired`](#strictrequired)
             -   [`ArrayElementType`](#arrayelementtype)
 -   [Buy us some doughnuts](#buy-us-some-doughnuts)
--   [Contributors ✨](#contributors-)
+-   [Contributors](#contributors)
 
 ## Description
 
@@ -590,6 +590,21 @@ A union of all builtin types.
 declare const builtin: Builtin;
 ```
 
+##### `DeepReadonly`
+
+Makes all properties in `T` readonly recursively.
+
+```ts
+type Foo = Set<{ bar?: ['foo', { hello: 'world' }] }>;
+
+// ReadonlySet<{
+//     readonly bar?: readonly ["foo", {
+//         readonly hello: "world";
+//     }] | undefined;
+// }>
+declare const foo: DeepReadonly<Foo>;
+```
+
 ##### `DeepRequired`
 
 Makes all properties in `T` required recursively.
@@ -752,7 +767,7 @@ interface Foo {
 declare const foo: NonNullableProperties<Foo>;
 ```
 
-##### `NonNullObject`
+##### `NonNullObject` (deprecated)
 
 A type that represents an object that is not `null` or `undefined`.
 
@@ -767,7 +782,7 @@ const bar: NonNullObject = null;
 const baz: NonNullObject = undefined;
 ```
 
-##### `AnyObject`
+##### `AnyObject` (deprecated)
 
 An object that can have any structure. Similar to `NonNullObject`, and to be used as an alternative if the aforementioned type leads to unexpected behaviors.
 
@@ -780,6 +795,28 @@ const bar: AnyObject = null;
 
 // ❌
 const baz: AnyObject = undefined;
+```
+
+##### `PrettifyObject`
+
+An utility type that fuses intersections of objects.
+
+```ts
+type Objects = {
+  foo: string;
+  bar: number;
+} & {
+  hello: boolean;
+  world: bigint;
+};
+
+type PrettyObjects = PrettifyObject<Objects>;
+// {
+//   foo: string;
+//   bar: number;
+//   hello: boolean;
+//   world: bigint
+// }
 ```
 
 ##### `PickByValue`

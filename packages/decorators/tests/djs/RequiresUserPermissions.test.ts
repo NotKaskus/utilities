@@ -1,5 +1,12 @@
 import { UserError } from '@sapphire/framework';
-import { ChannelType, Message as DJSMessage, PermissionFlagsBits, PermissionResolvable, PermissionsBitField, PermissionsString } from 'discord.js';
+import {
+	ChannelType,
+	Message as DJSMessage,
+	PermissionFlagsBits,
+	PermissionsBitField,
+	type PermissionResolvable,
+	type PermissionsString
+} from 'discord.js';
 import diff from 'lodash/difference';
 import { DecoratorIdentifiers, RequiresUserPermissions } from '../../src';
 
@@ -13,7 +20,7 @@ interface Message {
 		permissionsFor(): BitField;
 	};
 	guild: {
-		me: any;
+		members: any;
 	};
 }
 
@@ -28,7 +35,7 @@ function buildMessage(channelType: DJSMessage['channel']['type'], ...givenPermis
 			permissionsFor: () => ({ missing: (resolvedPermissions: PermissionsBitField) => buildMissing(resolvedPermissions, givenPermissions) })
 		},
 		guild: {
-			me: ''
+			members: { me: '' }
 		}
 	};
 }
@@ -75,7 +82,7 @@ describe('RequiresUserPermissions', () => {
 						identifier: DecoratorIdentifiers.RequiresUserPermissionsMissingPermissions,
 						message: 'Sorry, but you are not allowed to do that. You are missing the permissions: SendMessages,AttachFiles',
 						context: {
-							missing: [PermissionFlagsBits.SendMessages, PermissionFlagsBits.AttachFiles]
+							missing: ['SendMessages', 'AttachFiles']
 						}
 					})
 				);

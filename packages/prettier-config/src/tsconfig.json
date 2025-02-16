@@ -1,9 +1,13 @@
 {
-	"extends": "../../ts-config/extra-strict-without-decorators.json",
+	"extends": ["../../ts-config/src/tsconfig.json", "../../ts-config/src/extra-strict.json", "../../ts-config/src/verbatim.json"],
 	"compilerOptions": {
 		"rootDir": "./",
 		"outDir": "../dist",
-		"incremental": false
+		"incremental": false,
+		"declaration": false,
+		"sourceMap": false,
+		"declarationMap": false,
+		"moduleResolution": "Node16"
 	},
 	"include": ["."]
 }

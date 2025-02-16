@@ -1,5 +1,5 @@
 import { createTsupConfig } from '../../scripts/tsup.config';
 
 export default createTsupConfig({
-	globalName: 'SapphireStopwatch'
+	iifeOptions: { globalName: 'SapphireStopwatch' }
 });

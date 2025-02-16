@@ -2,6 +2,183 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/utilities@3.18.2](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.18.1...@sapphire/utilities@3.18.2) - (2025-01-29)
+
+## 🐛 Bug Fixes
+
+- **utilities:** Ensure consistent typing for `objectEntries`, `objectKeys` and `objectValues` ([598c24a](https://github.com/sapphiredev/utilities/commit/598c24a313d5b442c94304f0a9ff73b2782fb982)) ([#857](https://github.com/sapphiredev/utilities/pull/857) by @GeniusTimo)
+
+# [@sapphire/utilities@3.18.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.17.0...@sapphire/utilities@3.18.0) - (2024-11-02)
+
+## 🏠 Refactor
+
+- Deprecate `NonNullObject` and `AnyObject` ([0dce7d6](https://github.com/sapphiredev/utilities/commit/0dce7d6332acad34b49a7aa780371a4d35748774)) ([#821](https://github.com/sapphiredev/utilities/pull/821) by @kyranet)
+- **cutText:** Improve algorithm ([db34661](https://github.com/sapphiredev/utilities/commit/db34661f35b54b40c067f54f79a834eb20450256)) ([#820](https://github.com/sapphiredev/utilities/pull/820) by @kyranet)
+- Rewrite `roundNumber` ([1e7d2de](https://github.com/sapphiredev/utilities/commit/1e7d2dece33bb78e3c99bc0944b0e4b105d0effb)) ([#810](https://github.com/sapphiredev/utilities/pull/810) by @kyranet)
+
+## 🐛 Bug Fixes
+
+- Move browser imports ([100ffb0](https://github.com/sapphiredev/utilities/commit/100ffb0a2471bb9f74cc580d282d11059e1a0a68)) ([#826](https://github.com/sapphiredev/utilities/pull/826) by @kyranet)
+
+## 🚀 Features
+
+- **types:** Add `If` and `RequiredIf` ([143375f](https://github.com/sapphiredev/utilities/commit/143375f7f7194347ff071b66dc35a6da5422b6f9)) ([#825](https://github.com/sapphiredev/utilities/pull/825) by @kyranet)
+- Add `PrettifyObject` type ([5ac3f24](https://github.com/sapphiredev/utilities/commit/5ac3f24679bfcc914abd2da5ae460b24197e3458)) ([#822](https://github.com/sapphiredev/utilities/pull/822) by @kyranet)
+- **utilities:** Expose `Arr` to the docs ([997614c](https://github.com/sapphiredev/utilities/commit/997614c68bb6078191cc03fa24642f0ac8efd04b)) ([#780](https://github.com/sapphiredev/utilities/pull/780) by @favna)
+
+# [@sapphire/utilities@3.17.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.16.2...@sapphire/utilities@3.17.0) - (2024-07-23)
+
+## 🏠 Refactor
+
+- **utilities:** Rename `baseVariants` to `toTitleCaseDiscordJsVariants` ([cd7e6b5](https://github.com/sapphiredev/utilities/commit/cd7e6b598e5670312904dda6f630472ae4bd1198)) ([#754](https://github.com/sapphiredev/utilities/pull/754) by @favna)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([083376a](https://github.com/sapphiredev/utilities/commit/083376aac55094dbeddb5194e8a8f0d794b8cceb)) ([#763](https://github.com/sapphiredev/utilities/pull/763) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e7fdc5d](https://github.com/sapphiredev/utilities/commit/e7fdc5db3632a7f90292ef3978898da32730343a)) ([#752](https://github.com/sapphiredev/utilities/pull/752) by @renovate[bot])
+
+## 📝 Documentation
+
+- **utilities:** Fix type in README ([11863ec](https://github.com/sapphiredev/utilities/commit/11863ecd68de3ae5ec5bef9c700e917eb3a9ad25)) ([#776](https://github.com/sapphiredev/utilities/pull/776) by @kyranet)
+
+## 🚀 Features
+
+- Add `DeepReadonly` type ([1e73db9](https://github.com/sapphiredev/utilities/commit/1e73db920bfa5413d212839ac817b2b97e0a4ce2)) ([#775](https://github.com/sapphiredev/utilities/pull/775) by @kyranet)
+
+# [@sapphire/utilities@3.16.2](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.16.1...@sapphire/utilities@3.16.2) - (2024-05-21)
+
+## 🐛 Bug Fixes
+
+- **utilities:** Update re-exports on index level ([902cee8](https://github.com/sapphiredev/utilities/commit/902cee88b1e744d6748aa5c3c2e1c038d9d7dbbc))
+
+# [@sapphire/utilities@3.16.1](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.16.0...@sapphire/utilities@3.16.1) - (2024-05-21)
+
+## 🐛 Bug Fixes
+
+- **utilities:** Fixed cjs bundle ([f1db3f6](https://github.com/sapphiredev/utilities/commit/f1db3f6e09d67a5d769ee01db60d100f7af75426))
+
+# [@sapphire/utilities@3.16.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.15.3...@sapphire/utilities@3.16.0) - (2024-05-20)
+
+## 📝 Documentation
+
+- **readme:** Fix readme table of contents ([c60e8bd](https://github.com/sapphiredev/utilities/commit/c60e8bd9fc89156cf973871597ec3f0ef0308c08))
+- **utilities:** Fix tsdoc comments for `debounce` ([e9f4de9](https://github.com/sapphiredev/utilities/commit/e9f4de9bca5fb28cddf9c77b6c176fa7686cdaba))
+
+## 🚀 Features
+
+- **utilities:** Add `capitalizeFirstLetter`, `hasAtLeastOneKeyInObject`, and `snakeToCamelCase` (#747) ([014e4e8](https://github.com/sapphiredev/utilities/commit/014e4e8765943fc09d86b75fa347cc68102575b7))
+
+# [@sapphire/utilities@3.15.3](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.15.3...@sapphire/utilities@3.15.3) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Fixed commonjs typings export mapping (#707) ([216ff02](https://github.com/sapphiredev/utilities/commit/216ff0260d63a9590357f9a5069f1ae2b34eaf5d))
+
+# [@sapphire/utilities@3.15.2](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.15.2...@sapphire/utilities@3.15.2) - (2024-01-06)
+
+## 🐛 Bug Fixes
+
+- Fixed bun compatibility for @sapphire/utilities (#703) ([ba07362](https://github.com/sapphiredev/utilities/commit/ba07362e08bce895d4ada672d65edb527fcfc26d))
+
+# [@sapphire/utilities@3.15.1](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.15.1...@sapphire/utilities@3.15.1) - (2023-12-28)
+
+## 📝 Documentation
+
+- **utilities:** Fix tsdoc comments for omitKeysFromObject ([afd7d27](https://github.com/sapphiredev/utilities/commit/afd7d2742fbca4d1c84fa0b6855490ce644a1899))
+
+# [@sapphire/utilities@3.15.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.15.0...@sapphire/utilities@3.15.0) - (2023-12-28)
+
+## 🚀 Features
+
+- **utilities:** Add omitKeysFromObject utility function (#700) ([eccf9f6](https://github.com/sapphiredev/utilities/commit/eccf9f679581d95a7d2b29ae894a6971edcb4cc3))
+
+## 🪞 Styling
+
+- Run prettier on the codebase ([1d6e994](https://github.com/sapphiredev/utilities/commit/1d6e9941833b674eebb245d272ce879ce6a70427))
+
+# [@sapphire/utilities@3.14.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.14.0...@sapphire/utilities@3.14.0) - (2023-12-04)
+
+## 🐛 Bug Fixes
+
+- **utilities:** Properly split CJS, ESM and IIFE ([f9d8c8e](https://github.com/sapphiredev/utilities/commit/f9d8c8ec9b196ef34820a11f2612c8ae7588c0d3))
+- **discord.js-utilities:** Fixed `isNsfwChannel` typeguard by including `ChannelType.GuildMedia` (#665) ([7c6cfe2](https://github.com/sapphiredev/utilities/commit/7c6cfe239ba660fcf4e58a50e7691a2e622c0fda))
+
+## 📝 Documentation
+
+- **utilities:** Improve typedoc ([16c05ea](https://github.com/sapphiredev/utilities/commit/16c05eab3ae464b109b7fbc24364135111c22d98))
+
+## 🚀 Features
+
+- **tryParseJSON:** Support `replacer` argument (#668) ([4cf0978](https://github.com/sapphiredev/utilities/commit/4cf0978ed608a48164af0d5a027b72990f32124b))
+
+# [@sapphire/utilities@3.13.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.12.0...@sapphire/utilities@3.13.0) - (2023-07-21)
+
+## 🏠 Refactor
+
+- **sleep:** Align more closely with the Node.js API. This removes the `AbortError` class, if you were previously using it then check for `instanceof DOMException` and `error.name === 'AbortError'` (#626) ([36cd38f](https://github.com/sapphiredev/utilities/commit/36cd38f75c1cbea4f9a30149e18ea5255fde2be9))
+- **utilities:** Make sleepSync its own file (#615) ([5838b7e](https://github.com/sapphiredev/utilities/commit/5838b7e32e7d0cbf455f259e22c6aeaae5f18ec0))
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#607) ([9cc8bd0](https://github.com/sapphiredev/utilities/commit/9cc8bd0d4b5d650deab2c913e6c3d713861bae28))
+
+## 🚀 Features
+
+- **utilities:** Add poll function (#616) ([59d4c6b](https://github.com/sapphiredev/utilities/commit/59d4c6b986f8f363e32ec6297921d999201b0930))
+
+## 🧪 Testing
+
+- **sleepSync:** Use spies for `Date.now()` (#617) ([cf444df](https://github.com/sapphiredev/utilities/commit/cf444df3c4a63ac039de9cf4fe56b86f2068f1e2))
+- **pickRandom:** Add test to cover empty arrays ([b74394a](https://github.com/sapphiredev/utilities/commit/b74394a1a09ce8aaa14f4084e7a1105284e08205))
+
+# [@sapphire/utilities@3.12.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.11.2...@sapphire/utilities@3.12.0) - (2023-06-09)
+
+## 🚀 Features
+
+- **utilities:** Add retry function (#604) ([37dee25](https://github.com/sapphiredev/utilities/commit/37dee25f403fbc7bbe4703651367cbf0cbb1d2aa))
+
+## 🧪 Testing
+
+- Update vitest to coverage v8 ([a4bc6e4](https://github.com/sapphiredev/utilities/commit/a4bc6e4f24ea60143a150ecc76fda6484f172ab9))
+
+# [@sapphire/utilities@3.11.2](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.11.1...@sapphire/utilities@3.11.2) - (2023-05-06)
+
+## 🐛 Bug Fixes
+
+- **utilities:** Add support for TypedArray to deepClone (#592) ([85dcd15](https://github.com/sapphiredev/utilities/commit/85dcd15fd98fff5bf74749d2cd26963a99c71a75))
+
+# [@sapphire/utilities@3.11.1](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.11.0...@sapphire/utilities@3.11.1) - (2023-04-10)
+
+## 🏃 Performance
+
+- **chunk:** Remove clone (#574) ([049047b](https://github.com/sapphiredev/utilities/commit/049047b3ceee6fcfeb2e09e15e26424022a5045c))
+
+## 🏠 Refactor
+
+- **utilities:** Improve `codeBlock` and `inlineCodeBlock` (#498) ([29b1e5a](https://github.com/sapphiredev/utilities/commit/29b1e5a21317142ca6cceea5d4eaf65e9243653e))
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#577) ([291dd67](https://github.com/sapphiredev/utilities/commit/291dd6783e57d8f075ce566218ba076ef6c4bbbd))
+- **deps:** Update all non-major dependencies (#545) ([40ca040](https://github.com/sapphiredev/utilities/commit/40ca040a21d8a0949682051a3a974538183a400e))
+- **deps:** Update all non-major dependencies (#544) ([cc78f17](https://github.com/sapphiredev/utilities/commit/cc78f17390c7f3db08af92bf46a5a70a9c11dd5f))
+- **deps:** Update all non-major dependencies (#532) ([8033d1f](https://github.com/sapphiredev/utilities/commit/8033d1ff7a5a1974134c61f424f171cccb2915e1))
+- **deps:** Update all non-major dependencies (#514) ([21b07d5](https://github.com/sapphiredev/utilities/commit/21b07d5db529a0d982647a60de98e46f36f1ac93))
+- **deps:** Update all non-major dependencies (#505) ([6178296](https://github.com/sapphiredev/utilities/commit/617829649e1e4deeee02b14533b5377cd5bc1fb3))
+
+## 📝 Documentation
+
+- Add @06000208 as a contributor ([fa3349e](https://github.com/sapphiredev/utilities/commit/fa3349e55ce4ad008785211dec7bf8e2b5d933df))
+- Add @didinele as a contributor ([42ef7b6](https://github.com/sapphiredev/utilities/commit/42ef7b656c48fd0e720119db1d622c8bba2791e9))
+- Add @goestav as a contributor ([0e56a92](https://github.com/sapphiredev/utilities/commit/0e56a92a4e2d0942bfa207f81a8cb03b32312034))
+- Add @CitTheDev as a contributor ([34169ea](https://github.com/sapphiredev/utilities/commit/34169eae1dc0476ccf5a6c4f36e28602a204829e))
+- Add @legendhimslef as a contributor ([059b6f1](https://github.com/sapphiredev/utilities/commit/059b6f1ab5362d46d58624d06c1aa39192b0716f))
+- **utilities:** Add usage (#499) ([0c4decc](https://github.com/sapphiredev/utilities/commit/0c4decc879cb531d82fe4c871b6fe6a7b3e1314b))
+
+## 🧪 Testing
+
+- Cleanup tests ([aec1bb2](https://github.com/sapphiredev/utilities/commit/aec1bb290d0f3c00a1ae4f4c86302ebbb161d348))
+
 # [@sapphire/utilities@3.11.0](https://github.com/sapphiredev/utilities/compare/@sapphire/utilities@3.10.1...@sapphire/utilities@3.11.0) - (2022-10-08)
 
 ## 🐛 Bug Fixes
